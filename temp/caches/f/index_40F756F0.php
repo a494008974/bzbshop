@@ -1,4 +1,4 @@
-<?php exit;?>a:3:{s:8:"template";a:25:{i:0;s:38:"D:/WWW/bzbshop/themes/suning/index.dwt";i:1;s:58:"D:/WWW/bzbshop/themes/suning/library/page_header_index.lbi";i:2;s:49:"D:/WWW/bzbshop/themes/suning/library/index_ad.lbi";i:3;s:50:"D:/WWW/bzbshop/themes/suning/library/group_buy.lbi";i:4;s:61:"D:/WWW/bzbshop/themes/suning/library/recommend_promotion2.lbi";i:5;s:53:"D:/WWW/bzbshop/themes/suning/library/new_articles.lbi";i:6;s:53:"D:/WWW/bzbshop/themes/suning/library/cat_articles.lbi";i:7;s:49:"D:/WWW/bzbshop/themes/suning/library/anxingou.lbi";i:8;s:54:"D:/WWW/bzbshop/themes/suning/library/invoice_query.lbi";i:9;s:52:"D:/WWW/bzbshop/themes/suning/library/order_query.lbi";i:10;s:50:"D:/WWW/bzbshop/themes/suning/library/vote_list.lbi";i:11;s:54:"D:/WWW/bzbshop/themes/suning/library/recommend_hot.lbi";i:12;s:54:"D:/WWW/bzbshop/themes/suning/library/recommend_new.lbi";i:13;s:55:"D:/WWW/bzbshop/themes/suning/library/recommend_best.lbi";i:14;s:60:"D:/WWW/bzbshop/themes/suning/library/recommend_promotion.lbi";i:15;s:47:"D:/WWW/bzbshop/themes/suning/library/shoufa.lbi";i:16;s:48:"D:/WWW/bzbshop/themes/suning/library/remaisp.lbi";i:17;s:52:"D:/WWW/bzbshop/themes/suning/library/ad_position.lbi";i:18;s:50:"D:/WWW/bzbshop/themes/suning/library/jingpintj.lbi";i:19;s:46:"D:/WWW/bzbshop/themes/suning/library/cat_6.lbi";i:20;s:51:"D:/WWW/bzbshop/themes/suning/library/index_comm.lbi";i:21;s:48:"D:/WWW/bzbshop/themes/suning/library/guanzhu.lbi";i:22;s:51:"D:/WWW/bzbshop/themes/suning/library/email_list.lbi";i:23;s:45:"D:/WWW/bzbshop/themes/suning/library/help.lbi";i:24;s:52:"D:/WWW/bzbshop/themes/suning/library/page_footer.lbi";}s:7:"expires";i:1440043677;s:8:"maketime";i:1440040077;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php exit;?>a:3:{s:8:"template";a:25:{i:0;s:38:"D:/WWW/bzbshop/themes/suning/index.dwt";i:1;s:58:"D:/WWW/bzbshop/themes/suning/library/page_header_index.lbi";i:2;s:49:"D:/WWW/bzbshop/themes/suning/library/index_ad.lbi";i:3;s:50:"D:/WWW/bzbshop/themes/suning/library/group_buy.lbi";i:4;s:61:"D:/WWW/bzbshop/themes/suning/library/recommend_promotion2.lbi";i:5;s:53:"D:/WWW/bzbshop/themes/suning/library/new_articles.lbi";i:6;s:53:"D:/WWW/bzbshop/themes/suning/library/cat_articles.lbi";i:7;s:49:"D:/WWW/bzbshop/themes/suning/library/anxingou.lbi";i:8;s:54:"D:/WWW/bzbshop/themes/suning/library/invoice_query.lbi";i:9;s:52:"D:/WWW/bzbshop/themes/suning/library/order_query.lbi";i:10;s:50:"D:/WWW/bzbshop/themes/suning/library/vote_list.lbi";i:11;s:54:"D:/WWW/bzbshop/themes/suning/library/recommend_hot.lbi";i:12;s:54:"D:/WWW/bzbshop/themes/suning/library/recommend_new.lbi";i:13;s:55:"D:/WWW/bzbshop/themes/suning/library/recommend_best.lbi";i:14;s:60:"D:/WWW/bzbshop/themes/suning/library/recommend_promotion.lbi";i:15;s:47:"D:/WWW/bzbshop/themes/suning/library/shoufa.lbi";i:16;s:48:"D:/WWW/bzbshop/themes/suning/library/remaisp.lbi";i:17;s:52:"D:/WWW/bzbshop/themes/suning/library/ad_position.lbi";i:18;s:50:"D:/WWW/bzbshop/themes/suning/library/jingpintj.lbi";i:19;s:46:"D:/WWW/bzbshop/themes/suning/library/cat_6.lbi";i:20;s:51:"D:/WWW/bzbshop/themes/suning/library/index_comm.lbi";i:21;s:48:"D:/WWW/bzbshop/themes/suning/library/guanzhu.lbi";i:22;s:51:"D:/WWW/bzbshop/themes/suning/library/email_list.lbi";i:23;s:45:"D:/WWW/bzbshop/themes/suning/library/help.lbi";i:24;s:52:"D:/WWW/bzbshop/themes/suning/library/page_footer.lbi";}s:7:"expires";i:1440126502;s:8:"maketime";i:1440122902;}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta name="Generator" content="BZB v2.7.3" />
@@ -65,10 +65,10 @@ var process_request = "正在处理您的请求...";
 <div style="background:#dd301f;">
 <div class="block  topWrap">
 <div class="w">
-<a href="#"><img  src="themes/suning/images/ad_top.jpg" width="1200" height="40" /></a>
+
 </div>
 <div class="s">
-<a href="#"> <img  src="themes/suning/images/ad_top_s.jpg" width="990" height="40" /></a>
+
 </div>
 </div>
 </div>
@@ -544,6 +544,7 @@ onClick="window.external.AddFavorite(location.href,document.title);">收藏</a>
  
 </div>
 <div class="block " style="overflow:hidden">
+  
 <div id="tm_silder" class="tm_silder_box">
   <div class="tm_silder_con_box">
     <div class="img_box"> 
@@ -710,19 +711,21 @@ $(document).ready(function(){
 <div id="com2_v" ></div>
 <div id="com2_h">
 <blockquote>
-<div class=" news   " >
+ 
+    <div class=" news   " >
        <ul>  
         </ul>
 </div>
  </blockquote>
 <blockquote>
-<div class=" news   " >
+ <div class=" news   " >
        <ul>  
     </ul>
 </div>
  </blockquote>
  
  <blockquote>
+ 
 <div class="slogens">
 <a href="#" target="_blank">正品保证</a>
 <a href="#" target="_blank">全场免运费</a>
@@ -854,7 +857,9 @@ brtup.onmouseout=function() {MyMar1=setInterval(Marquee1,speed)}
 <h2 id="ECS_treea4" class="tabBack">疯狂抢购</h2>
 </div>
 <div id="ECS_treea1_BODY">
-  <div class="proArae hotArea" >
+ 
+  
+    <div class="proArae hotArea" >
   <dl>
   <dt>
 554fcae493e564ee0dc75bdf2ebf94caads|a:3:{s:4:"name";s:3:"ads";s:2:"id";s:2:"29";s:3:"num";s:1:"1";}554fcae493e564ee0dc75bdf2ebf94ca
@@ -898,7 +903,9 @@ brtup.onmouseout=function() {MyMar1=setInterval(Marquee1,speed)}
  </div>
 </div>
 <div id="ECS_treea2_BODY" style="display:none;">
+ 
   
+    
  <div class="proArae hotArea" >
   <dl>
   <dt>
@@ -939,7 +946,9 @@ brtup.onmouseout=function() {MyMar1=setInterval(Marquee1,speed)}
  </div>
 </div>
 <div id="ECS_treea3_BODY" style="display:none;">
- <div class="proArae hotArea" >
+ 
+  
+   <div class="proArae hotArea" >
   <dl>
   <dt>
 554fcae493e564ee0dc75bdf2ebf94caads|a:3:{s:4:"name";s:3:"ads";s:2:"id";s:2:"35";s:3:"num";s:1:"1";}554fcae493e564ee0dc75bdf2ebf94ca</dt>
@@ -1085,9 +1094,11 @@ brtup.onmouseout=function() {MyMar1=setInterval(Marquee1,speed)}
  <a href="http://e.weibo.com/3240587872/profile"  target="_blank">加关注</a>
  </div>
 <p>苏宁易购新浪微博官方唯一互动平台。想了解官网最热的促销资讯，赶紧关注苏宁易购。 <a href="http://e.weibo.com/3240587872/profile"  target="_blank">http://e.weibo.com/3240587872/profile</a></p>
-<span></span><div class="blank"></div>
+<span></span>
 <div class="blank"></div>
-<div class=" email_box">
+<div class="blank"></div>
+ 
+ <div class=" email_box">
     <h2> 订阅促销信息：</h2>
   <div class="  RelaArticle">
     <input type="text" id="user_email"   class="inputBg" style=" color:#999"   value="输入您的Email地址" onclick="javascript:this.value='';" /> 
@@ -1135,7 +1146,8 @@ function check_email()
     return false;
   }
 }
-</script></div>
+</script>
+</div>
 </div>
 </div>
  
