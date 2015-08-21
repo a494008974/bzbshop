@@ -1,0 +1,102 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+
+<script>
+var isvisible=false;
+function showAll(){
+if(!isvisible){
+document.getElementById("b").style.height="auto";
+document.getElementById("btn").style.background="background: url(../images/biao9b.gif)  no-repeat right center;";
+document.getElementById("btn").innerHTML="更多";
+} else
+{
+document.getElementById("b").style.height="60px";
+document.getElementById("btn").style.background="background: url(../images/biao9.gif)  no-repeat right center;";
+document.getElementById("btn").innerHTML="收起";
+}
+isvisible=!isvisible;
+}
+
+</script>
+ <!--{if $brands.1 || $price_grade.1 || $filter_attr_list}-->
+
+
+ 
+ 
+<style type="text/css">
+.b_box .btn {
+float: right;
+padding-right: 15px; background: url(../images/biao9b.gif) no-repeat right center;
+}
+</style>
+
+
+  <div class="Select">
+
+
+
+ <div class="searchKeyT" >商品筛选</div>
+  	<!--{if $brands.1}-->
+        <dl>
+            <dt>{$lang.brand}：</dt>
+            <dd id="b" class="b_box" >
+			<a  style="color:#000000" href="javascript:showAll()" id="btn" class="btn">更多</a>
+                <!--{foreach from=$brands item=brand}-->
+                <!-- {if $brand.selected} -->
+                <div class="select_all">{$brand.brand_name}</div>
+                <!-- {else} -->
+                <div> <a href="{$brand.url}">{$brand.brand_name}</a> </div>
+                <!-- {/if} -->
+                <!-- {/foreach} -->
+            </dd>
+        </dl>
+        <div style=" clear:both"></div>
+    <!-- {/if} -->
+    
+    	<!--{if $price_grade.1}-->     
+ 	   <dl>
+            <dt>{$lang.price}：</dt>
+            <dd>
+                <!--{foreach from=$price_grade item=grade}-->
+                <!-- {if $grade.selected} -->
+                <div class="select_all">{$grade.price_range}</div>
+                <!-- {else} -->
+                <div>  <a href="{$grade.url}">{$grade.price_range}</a> </div>
+                <!-- {/if} -->
+                <!-- {/foreach} -->
+            </dd>
+        </dl>
+          <div style=" clear:both"></div>
+         <!-- {/if} -->  
+          
+          
+         <!--{foreach from=$filter_attr_list item=filter_attr}-->  
+        <dl>
+            <dt>{$filter_attr.filter_attr_name|escape:html}：</dt>
+            <dd>
+                 <!--{foreach from=$filter_attr.attr_list item=attr}-->
+      <!-- {if $attr.selected} -->
+                <div class="select_all">{$attr.attr_value}</div>
+                <!-- {else} -->
+                <div>   <a href="{$attr.url}">{$attr.attr_value}</a>  </div>
+                <!-- {/if} -->
+                <!-- {/foreach} -->
+            </dd>
+        </dl>
+          <div style=" clear:both"></div>
+    <!--{/foreach}--> 
+ 
+
+
+	</div>
+
+ 
+<div class="blank5"></div>
+
+
+	  <!-- {/if} -->
+
+
+
+

@@ -1,0 +1,42 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+  
+  <!-- {if $new_goods} -->
+  
+ <div class="proArae hotArea" >
+  <dl>
+  <dt>
+ {insert name='ads' id=32 num=1}
+</dt>
+<dd>
+<div class="proItemMain">
+  <!--{foreach from=$new_goods item=goods name=new_goods}-->
+   <!-- {if $smarty.foreach.new_goods.iteration<5}-->
+ <div class="goodsItem">
+     
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a><br />
+           <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+           
+            <em class="snPrice">
+           <!-- {if $goods.promote_price neq ""} -->
+          {$goods.promote_price}
+          <!-- {else}-->
+          {$goods.shop_price}
+          <!--{/if}-->
+           </em>
+        </div>
+		<!--{/if}-->
+  <!--{/foreach}-->
+ </div>
+  <div class="proAreaimg">
+
+{insert name='ads' id=33 num=1}
+
+{insert name='ads' id=34 num=1}
+
+</div>
+  </dd>
+  </dl>
+ </div>
+
+<!-- {/if} -->

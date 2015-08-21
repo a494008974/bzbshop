@@ -1,0 +1,415 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<?php
+function get_brands1($cat = 0, $app = 'brand')
+{
+    $children = ($cat > 0) ? ' AND ' . get_children($cat) : '';
+
+    $sql = "SELECT b.brand_id, b.brand_name, b.brand_logo, b.brand_desc, COUNT(*) AS goods_num, IF(b.brand_logo > '', '1', '0') AS tag ".
+            "FROM " . $GLOBALS['ecs']->table('brand') . "AS b, ".
+                $GLOBALS['ecs']->table('goods') . " AS g ".
+            "WHERE g.brand_id = b.brand_id $children AND is_show = 1 " .
+            " AND g.is_on_sale = 1 AND g.is_alone_sale = 1 AND g.is_delete = 0 ".
+            "GROUP BY b.brand_id HAVING goods_num > 0 ORDER BY tag DESC, b.sort_order ASC";
+    $row = $GLOBALS['db']->getAll($sql);
+
+    foreach ($row AS $key => $val)
+    {
+        $row[$key]['url'] = build_uri($app, array('cid' => $cat, 'bid' => $val['brand_id']), $val['brand_name']);
+        $row[$key]['brand_desc'] = htmlspecialchars($val['brand_desc'],ENT_QUOTES);
+    }
+
+    return $row;
+}
+//
+function get_promotion_info1($goods_id = '')
+{
+    $snatch = array();
+    $group = array();
+    $auction = array();
+    $package = array();
+    $favourable = array();
+
+    $gmtime = gmtime();
+    $sql = 'SELECT act_id, act_name, act_type, start_time, end_time FROM ' . $GLOBALS['ecs']->table('goods_activity') . " WHERE is_finished=0 AND start_time <= '$gmtime' AND end_time >= '$gmtime'";
+    if(!empty($goods_id))
+    {
+        $sql .= " AND goods_id = '$goods_id'";
+    }
+    $res = $GLOBALS['db']->getAll($sql);
+    foreach ($res as $data)
+    {
+        switch ($data['act_type'])
+        {
+            case GAT_SNATCH: //夺宝奇兵
+                $snatch[$data['act_id']]['act_name'] = $data['act_name'];
+                $snatch[$data['act_id']]['url'] = build_uri('snatch', array('sid' => $data['act_id']));
+                $snatch[$data['act_id']]['time'] = sprintf($GLOBALS['_LANG']['promotion_time'], local_date('Y-m-d', $data['start_time']), local_date('Y-m-d', $data['end_time']));
+                $snatch[$data['act_id']]['sort'] = $data['start_time'];
+                $snatch[$data['act_id']]['type'] = 'snatch';
+                break;
+
+            case GAT_GROUP_BUY: //团购
+                $group[$data['act_id']]['act_name'] = $data['act_name'];
+                $group[$data['act_id']]['url'] = build_uri('group_buy', array('gbid' => $data['act_id']));
+                $group[$data['act_id']]['time'] = sprintf($GLOBALS['_LANG']['promotion_time'], local_date('Y-m-d', $data['start_time']), local_date('Y-m-d', $data['end_time']));
+                $group[$data['act_id']]['sort'] = $data['start_time'];
+                $group[$data['act_id']]['type'] = 'group_buy';
+                break;
+
+            case GAT_AUCTION: //拍卖
+                $auction[$data['act_id']]['act_name'] = $data['act_name'];
+                $auction[$data['act_id']]['url'] = build_uri('auction', array('auid' => $data['act_id']));
+                $auction[$data['act_id']]['time'] = sprintf($GLOBALS['_LANG']['promotion_time'], local_date('Y-m-d', $data['start_time']), local_date('Y-m-d', $data['end_time']));
+                $auction[$data['act_id']]['sort'] = $data['start_time'];
+                $auction[$data['act_id']]['type'] = 'auction';
+                break;
+
+            case GAT_PACKAGE: //礼包
+                $package[$data['act_id']]['act_name'] = $data['act_name'];
+                $package[$data['act_id']]['url'] = 'package.php#' . $data['act_id'];
+                $package[$data['act_id']]['time'] = sprintf($GLOBALS['_LANG']['promotion_time'], local_date('Y-m-d', $data['start_time']), local_date('Y-m-d', $data['end_time']));
+                $package[$data['act_id']]['sort'] = $data['start_time'];
+                $package[$data['act_id']]['type'] = 'package';
+                break;
+        }
+    }
+
+    $user_rank = ',' . $_SESSION['user_rank'] . ',';
+    $favourable = array();
+    $sql = 'SELECT act_id, act_range, act_range_ext, act_name, start_time, end_time FROM ' . $GLOBALS['ecs']->table('favourable_activity') . " WHERE start_time <= '$gmtime' AND end_time >= '$gmtime'";
+    if(!empty($goods_id))
+    {
+        $sql .= " AND CONCAT(',', user_rank, ',') LIKE '%" . $user_rank . "%'";
+    }
+    $res = $GLOBALS['db']->getAll($sql);
+
+    if(empty($goods_id))
+    {
+        foreach ($res as $rows)
+        {
+            $favourable[$rows['act_id']]['act_name'] = $rows['act_name'];
+            $favourable[$rows['act_id']]['url'] = 'activity.php';
+            $favourable[$rows['act_id']]['time'] = sprintf($GLOBALS['_LANG']['promotion_time'], local_date('Y-m-d', $rows['start_time']), local_date('Y-m-d', $rows['end_time']));
+            $favourable[$rows['act_id']]['sort'] = $rows['start_time'];
+            $favourable[$rows['act_id']]['type'] = 'favourable';
+        }
+    }
+    else
+    {
+        $sql = "SELECT cat_id, brand_id FROM " . $GLOBALS['ecs']->table('goods') .
+           "WHERE goods_id = '$goods_id'";
+        $row = $GLOBALS['db']->getRow($sql);
+        $category_id = $row['cat_id'];
+        $brand_id = $row['brand_id'];
+
+        foreach ($res as $rows)
+        {
+            if ($rows['act_range'] == FAR_ALL)
+            {
+                $favourable[$rows['act_id']]['act_name'] = $rows['act_name'];
+                $favourable[$rows['act_id']]['url'] = 'activity.php';
+                $favourable[$rows['act_id']]['time'] = sprintf($GLOBALS['_LANG']['promotion_time'], local_date('Y-m-d', $rows['start_time']), local_date('Y-m-d', $rows['end_time']));
+                $favourable[$rows['act_id']]['sort'] = $rows['start_time'];
+                $favourable[$rows['act_id']]['type'] = 'favourable';
+            }
+            elseif ($rows['act_range'] == FAR_CATEGORY)
+            {
+                /* 找出分类id的子分类id */
+                $id_list = array();
+                $raw_id_list = explode(',', $rows['act_range_ext']);
+                foreach ($raw_id_list as $id)
+                {
+                    $id_list = array_merge($id_list, array_keys(cat_list($id, 0, false)));
+                }
+                $ids = join(',', array_unique($id_list));
+
+                if (strpos(',' . $ids . ',', ',' . $category_id . ',') !== false)
+                {
+                    $favourable[$rows['act_id']]['act_name'] = $rows['act_name'];
+                    $favourable[$rows['act_id']]['url'] = 'activity.php';
+                    $favourable[$rows['act_id']]['time'] = sprintf($GLOBALS['_LANG']['promotion_time'], local_date('Y-m-d', $rows['start_time']), local_date('Y-m-d', $rows['end_time']));
+                    $favourable[$rows['act_id']]['sort'] = $rows['start_time'];
+                    $favourable[$rows['act_id']]['type'] = 'favourable';
+                }
+            }
+            elseif ($rows['act_range'] == FAR_BRAND)
+            {
+                if (strpos(',' . $rows['act_range_ext'] . ',', ',' . $brand_id . ',') !== false)
+                {
+                    $favourable[$rows['act_id']]['act_name'] = $rows['act_name'];
+                    $favourable[$rows['act_id']]['url'] = 'activity.php';
+                    $favourable[$rows['act_id']]['time'] = sprintf($GLOBALS['_LANG']['promotion_time'], local_date('Y-m-d', $rows['start_time']), local_date('Y-m-d', $rows['end_time']));
+                    $favourable[$rows['act_id']]['sort'] = $rows['start_time'];
+                    $favourable[$rows['act_id']]['type'] = 'favourable';
+                }
+            }
+            elseif ($rows['act_range'] == FAR_GOODS)
+            {
+                if (strpos(',' . $rows['act_range_ext'] . ',', ',' . $goods_id . ',') !== false)
+                {
+                    $favourable[$rows['act_id']]['act_name'] = $rows['act_name'];
+                    $favourable[$rows['act_id']]['url'] = 'activity.php';
+                    $favourable[$rows['act_id']]['time'] = sprintf($GLOBALS['_LANG']['promotion_time'], local_date('Y-m-d', $rows['start_time']), local_date('Y-m-d', $rows['end_time']));
+                    $favourable[$rows['act_id']]['sort'] = $rows['start_time'];
+                    $favourable[$rows['act_id']]['type'] = 'favourable';
+                }
+            }
+        }
+    }
+
+    $sort_time = array();
+    $arr = array_merge($snatch, $group, $auction, $package, $favourable);
+    foreach($arr as $key => $value)
+    {
+        $sort_time[] = $value['sort'];
+    }
+    array_multisort($sort_time, SORT_NUMERIC, SORT_DESC, $arr);
+
+    return $arr;
+}
+$this->assign('promotion_info1', get_promotion_info1());
+?>
+
+
+
+
+<?php
+ include_once('themes/' . $GLOBALS['_CFG']['template'].'/init.php');
+?>
+ 
+<script src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/transport.js"></script>
+  
+<script src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/js.js"></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+
+
+
+
+
+<div class="topNav">
+
+<div class="block">
+<div class="f_l">
+<a style="cursor: pointer"  
+onClick="window.external.AddFavorite(location.href,document.title);">收藏</a> 
+|    
+ {insert_scripts files='utils.js'}
+   <font id="ECS_MEMBERZONE">{* 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+</div>
+<div class="f_r">
+
+ <div class="f_l log"  style="position:relative; z-index:999999999; ">
+  <ul class="ul1" onmouseover="this.className='ul1 ul1_on'" onmouseout="this.className='ul1'">
+ <a class="a1" href="user.php">我的账户</a>
+  <div class="ul1_float">
+  
+  <ul>
+  
+     <a href="user.php?act=order_list">我的订单</a>
+     <a href="user.php?act=message_list">我的留言</a>
+     <a href="user.php?act=collection_list">我的收藏</a>
+     <a href="user.php?act=affiliate">我的推荐</a>
+     <a href="user.php?act=profile">用户信息</a>
+     <a href="user.php?act=address_list">收货地址</a>
+     
+ </ul>    
+  </div>
+    <div class="dang"></div>
+ </ul>
+ 
+ 
+ 
+  
+  
+  
+ </div>
+    <!--{if $navigator_list.top}-->
+
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->  
+    |
+    
+     <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+           
+           
+         
+    <!-- {/foreach} --> <!-- {/if} -->
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+<div class="headBg">
+
+<div   class="block clearfix" style=" position:relative; z-index:999; ">
+ <div class="logo  " >
+ <a  href="../index.php" name="top"><img src="../images/logo.gif" /></a></div>
+<div id="search" >   
+  <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()"  >
+  <div class="B_input_box">
+   <input name="keywords" type="text" id="keyword" value="品名或商品号" onclick="javascript:this.value=''" class="B_input"/>
+   </div>
+   <input name="imageField" type="submit" value="" class="go" style="cursor:pointer;" />
+  
+   </form>
+   <div class="keys  ">
+   <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+           alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+    {if $searchkeywords}
+  <b> 热门搜索：</b>
+   {foreach from=$searchkeywords item=val}
+   <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+   {/foreach}
+   {/if}
+  </div>
+</div> 
+</div>
+
+ 
+ 
+
+<div   class="block clearfix" style=" position:relative; z-index:999; ">
+<div id="mainNav" class="clearfix">
+
+<div class="category_all2"  onmouseover="this.className='category_all2 category_all2_on'" onmouseout="this.className='category_all2'">
+<a class="all" href="allcate.php">全部商品分类</a>
+
+
+<div class="my_left_category my_left_category2" style=" position:absolute; left:0; top:34px;  background: #0078C0;">
+
+
+    <!--{foreach from=$categories item=cat}-->
+     <dl>
+     <dt onmouseover="this.className='category_over'" onmouseout="this.className=''">
+     <a class="a1" href="{$cat.url}" >{$cat.name|escape:html}</a>
+     
+     
+     <div class="category_over_box">
+     <ul class="clearfix">
+       <div style="float:left; width:470px; padding:0 10px; overflow:hidden">
+     <!--{foreach from=$cat.cat_id item=child}-->
+     <li>
+     
+     <div style="clear:both"></div>
+     
+     
+     <div class="f_l">
+     <a class="over_2" href="{$child.url}">{$child.name|escape:html}</a>  
+     </div>
+     <div class="f_r">
+     <!--{foreach from=$child.cat_id item=childer}-->
+     <b>
+     | <a class="over_3" href="{$childer.url}">{$childer.name|escape:html}</a>
+     </b>  
+     <!--{/foreach}-->
+      </div>
+      
+       <div style="clear:both"></div>
+     </li>  
+     <!--{/foreach}-->
+      </div>  
+      
+      <div class=" hotBrand " >
+<div class="tit">推荐品牌 </div>
+<div class="  clearfix1">
+<!--{foreach from=get_brands1($GLOBALS['smarty']->_var['cat']['id']) item=bchilder}-->
+<a href="{$bchilder.url}">{$bchilder.brand_name|escape:html}</a>
+<!--{/foreach}-->
+</div>
+</div>
+      
+     <div class="csActive">
+<div class="tit">促销活动  </div>
+<div class="clearfix clearfix2">
+<!-- {foreach from=$promotion_info1 item=item1 key=key name=item1} -->
+
+	
+<div>
+    <a href="{$item1.url}" title="{$lang.$item1.type} {$item1.act_name}{$item1.time}" >{$item1.act_name}</a> 
+    
+    </div>
+
+    <!-- {/foreach} -->  
+</div>
+</div>
+     
+     </ul>
+     </div>
+     
+     
+     
+     
+     <div class="dang" ></div>
+     
+     
+     
+     </dt>
+     
+    </dl>
+    <!--{/foreach}--> 
+
+
+</div>
+
+
+
+</div>
+
+<div class="mainNav_r">
+  <a class="aa" href="../index.php"  {if $navigator_list.config.index eq 1} id="aa_on"   {/if}>{$lang.home} </a>
+  
+  
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+ 
+  <a  class="aa" {if $nav.active eq 1}  id="aa_on" {/if}  href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}>{$nav.name}</a>
+ 
+ <!-- {/foreach} -->
+ 
+ 
+ 
+
+ 
+ </div>
+ 
+ <div class="buy_car_bg_box" >  
+ 
+<div class="buy_car_bg " id="ECS_CARTINFO" onmouseover="this.className='buy_car_bg ul1_on'" onmouseout="this.className='buy_car_bg'">
+
+{insert name='cart_info'}
+   <div class="dang"></div>
+</div> 
+<div class="jiesuan"><a href="flow.php" >去结算</a> </div>
+</div> 
+  </div>
+ </div>
+</div>
+ 

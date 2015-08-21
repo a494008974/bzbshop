@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="themes/suning/group.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+<script type="text/javascript" charset="utf-8" src="themes/suning/images/group/lefttime.js"></script>
+<script type="text/javascript">
+  {foreach from=$lang.js_languages item=item key=key}
+    var {$key} = "{$item}";
+  {/foreach}
+</script>
+<script >
+
+var Tday = new Array();
+
+var daysms = 24 * 60 * 60 * 1000
+
+var hoursms = 60 * 60 * 1000
+
+var Secondms = 60 * 1000
+
+var microsecond = 1000
+
+var DifferHour = -1
+
+var DifferMinute = -1
+
+var DifferSecond = -1
+
+function clock(key)
+
+  {
+
+   var time = new Date()
+
+   var hour = time.getHours()
+
+   var minute = time.getMinutes()
+
+   var second = time.getSeconds()
+
+   var timevalue = ""+((hour > 12) ? hour-12:hour)
+
+   timevalue +=((minute < 10) ? ":0":":")+minute
+
+   timevalue +=((second < 10) ? ":0":":")+second
+
+   timevalue +=((hour >12 ) ? " PM":" AM")
+
+   var convertHour = DifferHour
+
+   var convertMinute = DifferMinute
+
+   var convertSecond = DifferSecond
+
+   var Diffms = Tday[key].getTime() - time.getTime()
+
+   DifferHour = Math.floor(Diffms / daysms)
+
+   Diffms -= DifferHour * daysms
+
+   DifferMinute = Math.floor(Diffms / hoursms)
+
+   Diffms -= DifferMinute * hoursms
+
+   DifferSecond = Math.floor(Diffms / Secondms)
+
+   Diffms -= DifferSecond * Secondms
+
+   var dSecs = Math.floor(Diffms / microsecond)
+
+   
+
+   if(convertHour != DifferHour) a=DifferHour+"<em>天</em>";
+
+   if(convertMinute != DifferMinute) b=DifferMinute+"<em>时</em>";
+
+   if(convertSecond != DifferSecond) c=DifferSecond+"<em>分</em>"
+
+     d=dSecs+"<em>秒</em>"
+
+     if (DifferHour>0) {a=a} 
+
+     else {a=''}
+
+   document.getElementById("leftTime"+key).innerHTML = a + b + c + d; //显示倒计时信息
+
+  
+
+  }
+
+</script>
+<script type="text/javascript" charset="utf-8" src="themes/suning/images/group/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="themes/suning/images/group/jquery.all_plugins.js"></script>
+<script type="text/javascript" charset="utf-8" src="themes/suning/images/group/Jumei.Core.min.js"></script>
+<script type="text/javascript">
+with(window) {
+                        RM_SITE_MAIN_WEBBASEURL='';
+                    RM_SITE_MAIN_TOPLEVELDOMAINNAME='';
+                    RM_CURRENT_SITE_MAIN_WEBBASEURL='';
+                    RM_CONTROL='Home';
+                    RM_ACTION='show';
+                    RM_SERVER_TIME=1344775354;
+                    RM_SITE='sh';
+                    RM_IMGDIR='themes/suning/images/group';
+                RM_CLIENT_TIME = parseInt((new Date()).getTime() / 1000);
+        GA_ACCOUNT = "UA-10208510-1";
+    }
+window._gaq = window._gaq || [];
+_gaq.push(['_setAccount', GA_ACCOUNT]);
+_gaq.push(['_setAllowHash', false]);
+</script>
+</head>
+<body class="group_body">
+
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!--当前位置 start-->
+<div class="block">
+<div class="blank"></div>
+ {insert name='ads' id=28 num=1}
+</div>
+ 
+<div class="block group_buy_list clearfix">
+    <div class="blank"></div>
+  
+ 
+    <!-- {if $gb_list} 如果有团购活动 -->
+    <!-- {foreach from=$gb_list item=group_buy name=name key=key} 循环团购活动开始 -->
+    <div class="group_buy"  onmouseover="this.className='group_buy group_buy_on'" onmouseout="this.className='group_buy'"
+            <!--{if $smarty.foreach.name.index mod 3 eq 0}-->
+            style='margin-left:1px;'
+            <!-- {/if} -->   
+    > 
+        <div class="img_box">
+            <div class="title_box"><a  href="{$group_buy.url}" target="_blank">{$group_buy.goods_name|escape:html}</a></div>
+    
+            <a href="{$group_buy.url}" target="_blank">
+            <img original="{$group_buy.goods_img}" alt="{$group_buy.goods_name|escape:html}" src="{$group_buy.goods_img}">
+            </a>
+			<div class="p_detail">
+			
+			 <em >已购买<b>{$group_buy.valid_goods}</b>件</em>
+                <span >原价<i>{$group_buy.market_price}</i>元</span>
+                <span><b>{$group_buy.zhekou}</b>折</span>
+               
+
+            </div>
+            <div class="p_price ">
+                <div class="left"> <b>￥</b>{$group_buy.cur_price}</div>
+                <div class="right"><a href="{$group_buy.url}" target="_blank" title="去看看"></a></div>
+                <div style="clear:both"></div>
+            </div>
+              <div class="p_timer">
+    <input type="hidden" class="time_left" value="15247">
+剩余：<font id="leftTime{$key}" ></font>
+
+    </div>       
+            <div class="p_boxShadow"></div>
+       </div>
+   </div>
+    <script>
+
+Tday[{$key}] = new Date("{$group_buy.gmt_end_date}");
+
+window.setInterval(function()     
+
+{clock({$key});}, 1000);     
+
+</script>
+<!--dqy add end 2011-8-26-->
+    <!--{/foreach}-->
+    <div class="blank"></div>  
+    <div class="blank"></div>    
+	<!-- #BeginLibraryItem "/library/pages.lbi" -->
+    <!-- #EndLibraryItem -->
+    
+    
+    
+    <!-- {else} -->
+    <span style="margin:2px 10px; font-size:14px; line-height:36px;">{$lang.group_goods_empty}</span>
+    <!-- {/if} -->
+
+</div>
+<div class="blank"></div>
+
+
+
+
+ 
+
+
+<script type="text/javascript">
+
+$(function(){
+
+    // Lazyload
+    $("#toady_deal_list > div.deal_box .img_box img").lazyload({
+        threshold : 200,
+        placeholder : RM_IMGDIR+"/transparent.gif"
+    });
+
+    // Home nav bar
+    if ($('#home_nav_bar').length>0) {
+        var home_nav_bar = $('#home_nav_bar');
+        var nav_backtotop = $('#home_nav_bar a.nav_backtotop');
+        //book mark
+        $('.button_bookmark').click(function(){
+            _gaq.push(["_trackEvent", 'deal','bttop','bookmark']);
+            if ($.browser.mozilla) {
+                window.sidebar.addPanel('聚美优品 – 中国领先正品化妆品限时特卖网', 'http://www.jumei.com', "");
+            } else if($.browser.msie) {
+                window.external.addFavorite('http://www.jumei.com', '聚美优品 – 中国领先正品化妆品限时特卖网');
+            }else{
+                alert('您的浏览器不支持点击收藏，请按快捷键 Ctrl+D 收藏聚美优品');
+            }
+        });
+        $('#home_nav_bar .sorts_list a').hover(function(){
+            $(this).addClass("hover");
+        },function(){
+            $(this).removeClass("hover");
+        });
+        var url = window.location.href;
+        $('#home_nav_bar .sorts_list a').each(function(){
+            var href = $(this).attr('href');
+            if( url.indexOf(href) >= 0 ){
+                $('#home_nav_bar .sorts_list a').removeClass('selected');
+                $(this).addClass('selected');
+            }
+        });
+
+
+        // back to top
+        nav_backtotop.click(function(e){
+            e.preventDefault();
+            $('html,body').animate({scrollTop:0},500);
+        });
+        //显示回到顶部按钮
+        var moveBackToTop = function(){
+            if($(window).scrollTop()>400){
+                home_nav_bar.fadeIn('fast');
+            } else{
+                home_nav_bar.fadeOut('fast');
+            }
+        };
+        $(window).scroll(moveBackToTop);
+
+        $(".nav_all").click(function(){
+           $(this).toggleClass("on").next().toggle();
+        })
+
+    }
+
+    // collect bar
+    var is_old_user = $.cookie("last_reg"),
+         clt_cls = $.cookie("clt_cls"),
+         os = navigator.platform,
+         collect;
+    if( !is_old_user && !clt_cls){
+        if( os.indexOf("Win") >= 0 && $.browser.msie){
+            collect = '<div id="top_collect_main"><div id="top_collect">每天精选推荐超值正品，收藏聚美优品，帮您变美更简单！'+'<img src="'+RM_IMGDIR+'/collect_IE.jpg" alt="" class="collect_pic"><img src="'+RM_IMGDIR+'/collect_close.jpg" alt="" class="collect_close"></div></div>';
+        }else if( os.indexOf("Win") >= 0 && !$.browser.msie ){
+            collect = '<div id="top_collect_main"><div id="top_collect">每天精选推荐超值正品，按键<span class="pink">CTRL+D</span>收藏聚美优品，帮您变美更简单！<img src="'+RM_IMGDIR+'/collect_close.jpg" alt="" class="collect_close"></div></div>';
+        }else if( os.indexOf("Mac")>=0 ){
+            collect = '<div id="top_collect_main"><div id="top_collect">每天精选推荐超值正品，按键<img src="'+RM_IMGDIR +'/collect_MAC.jpg" class="mac_img"><span class="pink bold">+D</span>收藏聚美优品，帮您变美更简单！<img src="'+RM_IMGDIR+'/collect_close.jpg" alt="" class="collect_close"></div></div>';
+        }
+        $(collect).insertBefore("#header_container");
+
+        //收藏
+        $("#top_collect .collect_pic").live("click",function(){
+            if($.browser.msie) {
+                window.external.addFavorite('http://www.jumei.com', '聚美优品 – 中国领先正品化妆品限时特卖网');
+                $("#top_collect").hide();
+                $.cookie("clt_cls","1",{expires:365});
+            }
+        });
+        //close
+        $("#top_collect .collect_close").live("click",function(){
+           $("#top_collect").hide();
+           $.cookie("clt_cls","1",{expires:365});
+        });
+    }
+
+    if ($('#seckill_time_left').length > 0) {
+        var b = (new Date()).getTime();
+        var e = function() {
+            var c = (new Date()).getTime();
+            var a = parseInt($('#seckill_time_left').val() * 1000);
+            var ls = a + b - c;
+
+            if (ls > 0) {
+                var ld = parseInt(ls / 86400000).toString();
+                ld = ld.length > 1 ? ld : '0' + ld;
+
+                ls = ls % 86400000;
+                var lh = parseInt(ls / 3600000).toString();
+                lh = lh.length > 1 ? lh : '0' + lh;
+
+                ls = ls % 3600000;
+                var lm = parseInt(ls / 60000).toString();
+                lm = lm.length > 1 ? lm : '0' + lm;
+
+                lms = parseInt((ls % 60000) / 100);
+                ls = parseInt(lms / 10);
+
+                ls = ls.toString().length > 1 ? ls : '0' + ls;
+
+                var html = '<span>' + lh + '</span><span>' + lm + '</span><span>' + ls + '</span>';
+                $('#seckill_countdown').html(html);
+            } else {
+                $("#seckill_countdown").stopTime('timer');
+                //$('#activity_timer').html('<div style="text-align:center">已结束</div>');
+            }
+        };
+        $("#seckill_countdown").everyTime(1000, 'timer', e);
+    }
+
+});
+
+
+Jumei.Core.afterInitCall(function(){
+
+    
+});
+</script>
+
+
+
+
+ 
+<script type="text/javascript">
+$(document).ready(function () {
+            Jumei.Core.init();
+            Jumei.Deal.init();
+        for(var i in Jumei.Core.afterInitFunctions)
+        Jumei.Core.afterInitFunctions[i].call();
+    if(Math.abs(RM_CLIENT_TIME-RM_SERVER_TIME)>=86400) {
+            var serverDate = new Date(RM_SERVER_TIME * 1000);
+            var clientDate = new Date(RM_CLIENT_TIME * 1000);
+            
+    }
+});
+</script>
+
+
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+
+ 
+
+
+</body>
+</html>

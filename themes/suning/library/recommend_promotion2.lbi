@@ -1,0 +1,28 @@
+
+<!-- {if $promotion_goods} -->
+<div class="index_l  qianggou">
+<ul>
+<!--{foreach from=$promotion_goods item=goods name=no}-->
+  <!-- {if $smarty.foreach.no.iteration<6}-->
+  <li class="goodsItem"  onmouseover="this.className='goodsItem goodsItem_on'" onmouseout="this.className='goodsItem'" <!--{if $smarty.foreach.no.index mod 5 eq 0}-->  style='margin-left:0;'  <!-- {/if} -->  >
+		 <a href="{$goods.url}"><img  src="{$goods.thumb}" alt="{$goods.name|escape:html}"  class="goodsimg"/></a>
+		 <div class="pbg" ></div>
+		 <p class="pb"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+		 <span>抢购价<em class="snPrice">{$goods.promote_price}</em></span> 
+  
+        <span>折扣 <b style="font-size:14px">{$goods.zhekou}</b> 折 </span>
+
+        
+		<div id="time{$goods.goods_id}" s="{$goods.s_time}" e="{$goods.e_time}" n="{$goods.t_now}" class="timeBox">
+         
+         
+         正在载入...
+         </div>
+</li>
+  <!-- {/if} -->
+<!--{/foreach}-->
+</ul>
+<script src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/my_lefttime.js"></script>
+</div>
+<!-- {/if} -->
+

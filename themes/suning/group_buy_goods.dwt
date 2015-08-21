@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="themes/suning/group.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+function tuan()
+{
+	var number = document.getElementById('number').value;
+	var group_buy_id = '{$group_buy_id}';
+	window.location.href="group_buy.php?act=buy&number="+number+"&group_buy_id="+group_buy_id;
+	
+}
+</script>
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+<script type="text/javascript" charset="utf-8" src="themes/suning/images/group/lefttime.js"></script>
+<script type="text/javascript">
+  {foreach from=$lang.js_languages item=item key=key}
+    var {$key} = "{$item}";
+  {/foreach}
+</script>
+<script type="text/javascript" charset="utf-8" src="themes/suning/images/group/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="themes/suning/images/group/jquery.all_plugins.js"></script>
+<script type="text/javascript" charset="utf-8" src="themes/suning/images/group/Jumei.Core.min.js"></script>
+<SCRIPT type="text/javascript" charset="utf-8" src="themes/suning/images/group/Jumei.Account.min.js"></SCRIPT>
+<SCRIPT type="text/javascript" charset="utf-8" src="themes/suning/images/group/Jumei.Mall.min.js"></SCRIPT>
+<script type="text/javascript">
+with(window) {
+                        RM_SITE_MAIN_WEBBASEURL='';
+                    RM_SITE_MAIN_TOPLEVELDOMAINNAME='';
+                    RM_CURRENT_SITE_MAIN_WEBBASEURL='';
+                    RM_CONTROL='Home';
+                    RM_ACTION='show';
+                    RM_SERVER_TIME=1344775354;
+                    RM_SITE='sh';
+                    RM_IMGDIR='themes/suning/images/group';
+                RM_CLIENT_TIME = parseInt((new Date()).getTime() / 1000);
+        GA_ACCOUNT = "UA-10208510-1";
+    }
+window._gaq = window._gaq || [];
+_gaq.push(['_setAccount', GA_ACCOUNT]);
+_gaq.push(['_setAllowHash', false]);
+</script>
+
+<SCRIPT type=text/javascript>
+with(window) {
+                        RM_SITE_MAIN_WEBBASEURL='';
+                    RM_SITE_MAIN_TOPLEVELDOMAINNAME='';
+                    RM_CURRENT_SITE_MAIN_WEBBASEURL='';
+                    RM_CONTROL='Mall';
+                    RM_ACTION='product';
+                    RM_SERVER_TIME=1342759490;
+                    RM_SITE='sh';
+     
+                RM_CLIENT_TIME = parseInt((new Date()).getTime() / 1000);
+        GA_ACCOUNT = "UA-10208510-1";
+    }
+window._gaq = window._gaq || [];
+_gaq.push(['_setAccount', GA_ACCOUNT]);
+ 
+ 
+_gaq.push(['_setAllowHash', false]);
+</SCRIPT>
+<script type="text/javascript">
+  {foreach from=$lang.js_languages item=item key=key}
+    var {$key} = "{$item}";
+  {/foreach}
+</script>
+ 
+</head>
+<body class="group_body">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+ 
+ <div class="block group_buy_list clearfix">
+ <a href="#">{insert name='ads' id=54 num=1}</a>
+   <div class="blank"></div>
+   
+     <div class="group_l">
+     
+        <div class="home_deal_list">
+             <div class="big_list clearfix">
+         
+        
+            <div class="blank"></div>
+                <div class="tit">
+                    <A class=all-p-ml 
+                    href="group_buy.php?act=buy&group_buy_id={$group_buy_id}" 
+                    target=_blank>{$group_buy.goods_name|escape:html}</A>{$group_buy.goods_brief}
+                 </div>
+                <div class="blank"></div>
+				<div class="f_l" style="width:224px; float:left;">
+                <div class="deal_info">
+                    <div class="ribbon">
+					
+                        <span><b>{$group_buy.cur_price}</b></span>
+                        <a  class="f_r" href="group_buy.php?act=buy&group_buy_id={$group_buy_id}" target="_blank" title="购买">购买<i class="gp_sp">&nbsp; </i></a>
+						<div class="buyit_Right"></div>
+						<div class="buyit_Left"> <i class="gp_sp">&nbsp;</i></div>
+                    </div>
+                    <div class="deal_info_box">
+                        <div class="price">
+                            <table cellpadding="0" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <th class="">原价</th>
+                                        <th class="">折扣</th>
+                                        <th style="border:none">节省</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="market_price">¥{$group_buy.market_price}</td>
+                                        <td>{$group_buy.zhekou}<span>折</span></td>
+                                        <td style="border:none">¥{$group_buy.jiesheng}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>                     
+						<dl class="gp_group_msg">
+					<dt><i>{$group_buy.valid_goods}</i>人已购买</dt>
+					<dd>数量有限，下单要快哟</dd>
+				</dl>
+                        <div class="countdown">
+                        <input type="hidden" class="time_left" value="15247">
+                    <div  class="timer">
+                        <span>剩余：</span><font id="leftTime">{$lang.please_waiting}</font>
+                    </div>
+                    </div>
+					
+					
+                    </div>
+					
+                </div>
+				<div class="blank" ></div>
+				<div class="blank" ></div>
+                <!-- Baidu Button BEGIN -->
+                <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare">
+                    <font>分享到：</font>
+                    <a class="bds_qzone"></a>
+                    <a class="bds_tsina"></a>
+                    <a class="bds_tqq"></a>
+                    <a class="bds_renren"></a>
+                    <span class="bds_more"></span>
+                    <a class="shareCount" style="margin-top:5px;"></a>
+                </div>
+                <script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=0" ></script>
+                <script type="text/javascript" id="bdshell_js"></script>
+                <script type="text/javascript">
+                document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+                </script>
+                <!-- Baidu Button END -->
+				</div>
+                <div class="photo">
+                    <A href="group_buy.php?act=buy&group_buy_id={$group_buy_id}"
+ target=_blank><IMG   alt="{$group_buy.goods_name|escape:html}" src="{$group_buy.goods_img}"  > </A>
+                 
+                </div>
+                
+                <div class="blank"></div>
+				
+         </div>
+        </div>  
+        
+        <div class="blank"></div>
+        <div class="blank"></div>
+        
+        <div class="info_box ">
+        <div class="gp_detailAnchor">
+				<a href="#a2">温馨提示</a>
+                <a href="#a6"> 本单详情</a>
+			</div>
+        
+		<div>
+		   <a name="a2"></a>
+		     <div class="blank"></div>
+		  <h5 class=" gp_dHead" >温馨提示</h5>
+        <div class="blank"></div>
+		<ul>
+            <p>券有效期： 2012-09-07 00:00:00.0 - 2013-05-08 23:59:00.0</p>
+             <p>
+	预约/提货时间：11:00-19:00<br>
+	请提前2天预约，每日限300人<br>
+	4月2日开始领取</p>
+			</ul>
+        </div>
+        <div class="blank"></div>
+        <div>
+                <a name="a6"></a>
+                  <div class="blank"></div>
+            <h5 class=" gp_dHead">本单详情</h5>  
+			 <div class="blank"></div>  
+                {$group_buy.goods_desc}
+        
+                <div class="blank"></div>
+
+        </div>
+        
+     
+               
+        
+        </div>
+       
+     </div>
+   
+     <div class="group_r">
+ 
+         <div class="right_tit">同类热门团购</div>
+         <div class="box_v1">
+     <!--{foreach from=$group_list item=group_buy key=key name=no}-->
+     
+	<!-- {if $smarty.foreach.no.iteration<11}-->
+    
+    
+    <div class="product_container">
+	 <p class="name">
+            <A href="group_buy.php?act=view&id={$group_buy.act_id}">{$group_buy.goods_name}</A>
+        </p>
+        <div class="left_part">
+            <A href="group_buy.php?act=view&id={$group_buy.act_id}"><IMG height=60 alt="" src="{$group_buy.goods_thumb}"></A> 
+        </div>
+       
+        
+        <div class="right_part">
+		
+            <span class="f_r"><b> {$group_buy.valid_goods} </b>人已经购买</span>
+           <span class="f_l"> <a href="group_buy.php?act=buy&group_buy_id={$group_buy_id}">立即购买</a></span>
+        </div>
+     </div>
+<div class="blank"></div>
+<div class="blank"></div>
+	<!-- {/if} -->		
+
+    <!--{/foreach}-->
+     </div>
+     
+         <script type="text/javascript">
+        
+        $(function(){
+            $(".info_titles").hover(function(){
+                $(this).next("div").show();
+                $(this).parent().siblings().children(".info_titles").not(this).next("div").hide();
+            });
+        });
+        //Ranking height
+        $(".wrap_right").height($(".wrap").height());
+        </script>
+         <script type="text/javascript">
+        
+            $(document).ready(function(){
+                var obj = $('#sidebar_comment_container');
+                var per_move =81;
+                
+                var num = obj.find('.comment_content').length;
+                var i = 1;
+                obj.everyTime(5000,'sidebar_comments',function(){
+                    obj.animate({top: '-'+per_move*i},'fast');
+                    if( i == (num-3) ){
+                        i = 1;
+                    }else{
+                        i++;
+                    }
+                });
+            });
+        
+        </script>
+
+     </div>
+    
+ </div>   
+    
+<div class="blank"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+<script type="text/javascript">
+var gmt_end_time = "{$group_buy.gmt_end_date|default:0}";
+{foreach from=$lang.goods_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var now_time = {$now_time};
+<!-- {literal} -->
+
+onload = function()
+{
+  try
+  {
+    onload_leftTime();
+  }
+  catch (e)
+  {}
+}
+<!-- {/literal} -->
+</script>
+</html>

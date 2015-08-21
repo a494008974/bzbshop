@@ -1,0 +1,6 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/transport.js"></script>
+<script src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/js.js"></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>

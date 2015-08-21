@@ -1,0 +1,91 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+ 
+<div class="brand_cat"> 
+<div class="tit"><span>品牌旗舰店</span><a href="brand.php">更多品牌></a></div>
+<ul class="ul_l">
+<li class="ul_l_li_on" onmouseover="this.className=' ul_l_li_on  ul_l_li'" onmouseout="this.className='ul_l_li '">
+<a href="#" ><img src="../images/pinpai4_1.jpg"  class="err-product"/></a>
+<div class="ul_r" style=" display:block; z-index:9">
+<a href="#" ><img  src="../images/pinpai4_1tu.jpg" ></a>
+<p><a  href="#">LG彩电47LS4100-CA </a></p>
+<em class="snPrice">¥4599.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#"><img  src="../images/pinpai4_2.jpg"  class="err-product"/></a>
+<div class="ul_r">
+<a href="#"  ><img  src="../images/pinpai4_2tu.jpg"></a>
+<p><a  href="#" >奥克斯空调KFR-35GW/SFT+2（铜管）</a></p>
+<em class="snPrice">¥2179.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#"><img  src="../images/pinpai4_3.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#" ><img  src="../images/pinpai4_3tu.jpg"></a>
+<p><a  href="#">华帝烟灶热套餐i11008+JZT-i10007B+DJF65-i14002参加大家电订单满减活动，最高直降2500！风力大、超低噪音、纯平油网！</a></p>
+<em class="snPrice">¥2998.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#"><img  src="../images/pinpai4_4.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#" ><img  src="../images/pinpai4_4tu.jpg"></a>
+<p><a href="#" >海尔冰箱BCD-251WBCY</a></p>
+<em class="snPrice">¥4899.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#" ><img  src="../images/pinpai4_5.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#"><img  src="../images/pinpai4_5tu.jpg"></a>
+<p><a   href="#" >博朗（Braun）电动剃须刀3系320S-4德国品质，值得拥有。</a></p>
+<em class="snPrice">¥899.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#" ><img  src="../images/pinpai4_6.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#" ><img  src="../images/pinpai4_6tu.jpg"></a>
+<p><a  href="#" name="dac_index_lc10718" >ACA面包机MB500享受高端品质，享受高端生活，来自北美电器，ACA!</a></p>
+<em class="snPrice">¥299.00</em>
+</div>
+</li>
+</ul>
+
+
+</div>
+ 
+ 
+ 
+<div class="blank"></div> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

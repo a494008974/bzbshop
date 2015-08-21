@@ -1,0 +1,25 @@
+﻿
+/* QQ客服 */
+
+.QQbox{ z-index:99; width: 247px; right:-30px; top: 145px; position: absolute;}
+.QQbox .press{ right: 0; border: none; cursor: pointer;width: 26px; height: 136px;position: absolute;}
+.QQbox .Qlist{ left: 0; width: 247px; background: url(siderIM_bg.gif)}
+.QQbox .Qlist .welcome{ font-weight:bold; color:#0000ff}
+.QQbox .Qlist .b{ float: right; height: 6px; width: 247px; font-size: 1px; }
+.QQbox .Qlist .infobox{ text-align:center; background:#bdc5cb; background-image:url(siderIM_infobox.gif); background-repeat:no-repeat;  padding:5px; line-height:14px; color:#000; font-weight:700;}
+.QQbox .Qlist .t{ background:url(siderIM_title.gif) no-repeat; height:10px;}
+.QQbox .Qlist .b{ background:url(siderIM_bottom.gif); height:10px; overflow:hidden; }
+.QQbox .Qlist .con{ background: url(siderIM_bg.gif);  padding: 0px 0px 10px 10px;width: 237px; color:#000}
+.QQbox .Qlist .con .f_l{ width:100px;  float:left; overflow: hidden}
+.QQbox .Qlist .con .f_l img{ margin-top:5px;}
+
+.QQbox .Qlist .con .tit{ font-weight:bold ; padding:8px 0 6px 0}
+
+.QQbox .Qlist .con .f_r{width:125px;  overflow: hidden}
+.QQbox .Qlist .con .f_r li{ padding:5px 0 5px 0}
+
+.QQbox .Qlist .con .zixun .tit2{ float: left; padding-right:30px;}
+.QQbox .Qlist .con .zixun .bod{ float: left; color:#FF0000; font-weight:bold}
+.QQbox .Qlist .con  .hui{ color:#CCC; padding-left:30px; float:left; width:200px; padding-top:8px;}
+
+/*QQ END*/

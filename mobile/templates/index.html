@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecdaddy.com">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base.css?v=mzw" />
+<style type="text/css">
+#scroller { width:1280px; height:100%; float:left;}
+#wrapper {width:320px; height:104px;float:left;}
+.lbt{width:320px;margin:0 auto;height:104px;position:relative;overflow:hidden;}
+.lbt ol{position:absolute;width:320px;height:4px;top:100px;left:0}
+.lbt ol li {width:80px;height:4px;background:#ccc;float:left}
+.lbt ol .on {background:#f60}
+.lbt ul {position:absolute;top:0;left:0;width:2000px}
+.lbt ul a {display:block}
+.lbt ul li img {float:left;width:320px;height:100px}
+</style>
+<script src="js/iscroll.js"></script>
+<script type="text/javascript">
+    var myScroll;
+    function loaded() {
+        myScroll = new iScroll('wrapper', {
+            snap: true,
+            momentum: false,
+            hScrollbar: false,
+            onScrollEnd: function () {
+document.querySelector('#indicator > li.on').className = '';
+document.querySelector('#indicator > li:nth-child(' + (this.currPageX+1) + ')').className = 'on';
+}
+        });
+    }
+    document.addEventListener('DOMContentLoaded', loaded, false);
+    setInterval(function(){  
+        if(myScroll.currPageX==3){
+            myScroll.scrollToPage(0, 0);
+        }else{
+            myScroll.scrollToPage('next', 0);}
+    },5000);
+</script>
+{insert_scripts files='../js/transport.js,../js/utils.js'}
+<script type="text/javascript">
+function setTab(m,n){
+	var tli=document.getElementById("menu"+m).getElementsByTagName("li");
+	var mli=document.getElementById("main"+m).getElementsByTagName("ul");
+	for(i=0;i<tli.length;i++){
+		tli[i].className=i==n?"hover":"";
+		mli[i].style.display=i==n?"block":"none";
+	}
+}
+function add_num(rec_id,goods_id){
+	document.getElementById("goods_number_"+rec_id+"").value++;
+	var number = document.getElementById("goods_number_"+rec_id+"").value;
+	//Ajax.call('cart.php', 'act=update_group_cart&rec_id=' + rec_id +'&number=' + number+'&goods_id=' + goods_id, changePriceResponse, 'GET', 'JSON');
+	Ajax.call('cart.php?act=update_group_cart', 'rec_id=' + rec_id +'&number=' + number+'&goods_id=' + goods_id, changePriceResponse, 'GET', 'JSON');
+
+}
+
+function red_num(rec_id,goods_id){
+	if (document.getElementById("goods_number_"+rec_id+"").value>=1){
+		document.getElementById("goods_number_"+rec_id+"").value--;
+	}
+	var number = document.getElementById("goods_number_"+rec_id+"").value;
+	Ajax.call('cart.php', 'act=update_group_cart&rec_id=' + rec_id +'&number=' + number+'&goods_id=' + goods_id, changePriceResponse, 'GET', 'JSON');
+}
+
+function change_price(rec_id,goods_id){
+	var number = document.getElementById("goods_number_"+rec_id+"").value;
+	Ajax.call('cart.php','act=update_group_cart&rec_id=' + rec_id +'&number=' + number+'&goods_id=' + goods_id, changePriceResponse, 'GET', 'JSON');
+}
+
+function changePriceResponse(result){
+	document.getElementById('cartnum').innerHTML = result.cartnum;
+}
+</script>
+</script>
+</head>
+<body>
+{include file='head.html'}
+<form name="searchForm" method="get" action="search.php" class="search">
+	<input name="keywords" id="keyword" type="text" class="keyword" value="" placeholder="请输入关键词">
+	<input type="submit" value="搜索" class="search-button">
+</form>
+
+
+<div class="activities ">
+	<div class="container">
+		<div class="list hm mtm menu">
+        <a href="user.php?act=order_list">
+        <img src="images/m1.png" alt="我的订单">
+        </a>
+        <a href="category.php">
+        <img src="images/m2.png" alt="商品分类">
+        </a>
+        <a href="brands.php">
+        <img src="images/m3.png" alt="品牌馆">
+        </a>
+        <a href="article.php">
+        <img src="images/m4.png"  alt="新闻中心">
+        </a>
+		</div>
+        
+	</div>
+</div>
+
+
+<div id="hot">
+	<div class="mt">
+		<ul class="menu0" id="menu0">
+        	<li onClick="setTab(0,0)" class="hover"><span>新品</span> <em></em></li>
+			<li onClick="setTab(0,1)"><span>精品</span> <em></em></li>
+			<li onClick="setTab(0,2)"><span>热门</span><em></em></li>
+            <li onClick="setTab(0,3)"><span>促销</span><em></em></li>
+		</ul>
+	</div>
+	<div class="main" id="main0">
+		<ul class="block">
+			<li>
+				<div class="mc">
+					<div class="t-lists">
+                    <div class="hm"><a href="brands.php"> <img src="images/ad1.jpg"/> </a></div>
+         {if $new_num > 0}
+						{foreach from=$new_goods item=data name=goo} 
+						<div class="box{if $smarty.foreach.goo.iteration == 1} first{/if}">
+							<table cellspacing="0" cellpadding="0" class="tab" width="95%" >
+								<tbody>
+									<tr>
+										<td class="p-img" style="float:none;" width="105px"><a href="goods.php?id={$data.id}"><img src="../{$data.thumb}"  alt=""/></a></td>
+										<td  valign="top" class="text"><div class="p-name" style="color: #3C3C3C;font-size: 0.875em;" ><a href="goods.php?id={$data.id}">{$data.name}<font color="red">{$data.goods_brief}</font></a> </div>
+											<div class="p-name" style="width:180px;font-size: 0.875em;"><span>价格： <font color="red" style="font-family:Arial;font-weight:bold"> {if $promote_price}{$data.promote_price}{else}{$data.shop_price}{/if}</font></span></div>
+                                            <div class="p-detail" >
+                                            <a href="javascript:;" class="btn_num" onClick="red_num({$data.id},{$data.id});" title="减少数量">-</a> 
+						<input type="text" name="goods_number[{$data.id}]" id="goods_number_{$data.id}" value="0" size="3" style="text-align:center;border: 1px solid #b3b3b3;" onBlur="change_price({$data.id},{$data.id})" />
+						 <a href="javascript:;" class="btn_num" onClick="add_num({$data.id},{$data.id})" title="增加数量" >+</a>
+                         </div>
+                                            </td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						</a> {/foreach} <a href="goods_list.php?type=new">
+						<div class="box last">更多</div>
+						</a> {/if} </div>
+				</div>
+			</li>
+		</ul>
+        <ul>
+			<li>
+				<div class="mc">
+					<div class="t-lists">
+                    <div class="hm"><a href="brands.php"> <img src="images/ad2.jpg"/> </a></div>
+                     {if $best_num > 0}
+						{foreach from=$best_goods item=data name=goo} <div class="box{if $smarty.foreach.goo.iteration == 1} first{/if}">
+							<table cellspacing="0" cellpadding="0" class="tab" width="95%" >
+								<tbody>
+									<tr>
+										<td class="p-img" style="float:none;" width="105px"><a href="goods.php?id={$data.id}"><img src="../{$data.thumb}"  alt=""/></a></td>
+										<td  valign="top" class="text"><div class="p-name" style="color: #3C3C3C;font-size: 0.875em;" ><a href="goods.php?id={$data.id}">{$data.name}<font color="red">{$data.goods_brief}</font></a> </div>
+											<div class="p-name" style="width:180px;font-size: 0.875em;"><span>价格： <font color="red" style="font-family:Arial;font-weight:bold"> {if $promote_price}{$data.promote_price}{else}{$data.shop_price}{/if}</font></span></div>
+                                            <div class="p-detail" >
+                                            <a href="javascript:;" class="btn_num" onClick="red_num({$data.id},{$data.id});" title="减少数量">-</a> 
+						<input type="text" name="goods_number[{$data.id}]" id="goods_number_{$data.id}" value="0" size="3" style="text-align:center;border: 1px solid #b3b3b3;" onBlur="change_price({$data.id},{$data.id})" />
+						 <a href="javascript:;" class="btn_num" onClick="add_num({$data.id},{$data.id})" title="增加数量" >+</a>
+                         </div>
+                                            </td>
+									</tr>
+								</tbody>
+							</table>
+						</div> {/foreach} <a href="goods_list.php?type=best">
+						<div class="box last">更多</div>
+						</a> {/if} </div>
+				</div>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<div class="mc">
+					<div class="t-lists">
+                    <div class="hm"><a href="brands.php"> <img src="images/ad3.jpg"/> </a></div>
+                    {if $hot_num > 0}
+						{foreach from=$hot_goods item=data name=goo} <div class="box{if $smarty.foreach.goo.iteration == 1} first{/if}">
+							<table cellspacing="0" cellpadding="0" class="tab" width="95%" >
+								<tbody>
+									<tr>
+										<td class="p-img" style="float:none;" width="105px"><a href="goods.php?id={$data.id}"><img src="../{$data.thumb}"  alt=""/></a></td>
+										<td  valign="top" class="text"><div class="p-name" style="color: #3C3C3C;font-size: 0.875em;" ><a href="goods.php?id={$data.id}">{$data.name}<font color="red">{$data.goods_brief}</font></a> </div>
+											<div class="p-name" style="width:180px;font-size: 0.875em;"><span>价格： <font color="red" style="font-family:Arial;font-weight:bold"> {if $promote_price}{$data.promote_price}{else}{$data.shop_price}{/if}</font></span></div>
+                                            <div class="p-detail" >
+                                            <a href="javascript:;" class="btn_num" onClick="red_num({$data.id},{$data.id});" title="减少数量">-</a> 
+						<input type="text" name="goods_number[{$data.id}]" id="goods_number_{$data.id}" value="0" size="3" style="text-align:center;border: 1px solid #b3b3b3;" onBlur="change_price({$data.id},{$data.id})" />
+						 <a href="javascript:;" class="btn_num" onClick="add_num({$data.id},{$data.id})" title="增加数量" >+</a>
+                         </div>
+                                            </td>
+									</tr>
+								</tbody>
+							</table>
+						</div> {/foreach} <a href="goods_list.php?type=hot">
+						<div class="box last">更多</div>
+						</a> {/if} </div>
+				</div>
+			</li>
+		</ul>
+        <ul>
+			<li>
+				<div class="mc">
+					<div class="t-lists">
+                    <div class="hm"><a href="brands.php"> <img src="images/ad4.jpg"/> </a></div>
+                    {if $promote_num > 0}
+						{foreach from=$promote_goods item=data name=goo}<div class="box{if $smarty.foreach.goo.iteration == 1} first{/if}">
+							<table cellspacing="0" cellpadding="0" class="tab" width="95%" >
+								<tbody>
+									<tr>
+										<td class="p-img" style="float:none;" width="105px"><a href="goods.php?id={$data.id}"><img src="../{$data.thumb}"  alt=""/></a></td>
+										<td  valign="top" class="text"><div class="p-name" style="color: #3C3C3C;font-size: 0.875em;" ><a href="goods.php?id={$data.id}">{$data.name}<font color="red">{$data.goods_brief}</font></a> </div>
+											<div class="p-name" style="width:180px;font-size: 0.875em;"><span>价格： <font color="red" style="font-family:Arial;font-weight:bold"> {if $promote_price}{$data.promote_price}{else}{$data.shop_price}{/if}</font></span></div>
+                                            <div class="p-detail" >
+                                            <a href="javascript:;" class="btn_num" onClick="red_num({$data.id},{$data.id});" title="减少数量">-</a> 
+						<input type="text" name="goods_number[{$data.id}]" id="goods_number_{$data.id}" value="0" size="3" style="text-align:center;border: 1px solid #b3b3b3;" onBlur="change_price({$data.id},{$data.id})" />
+						 <a href="javascript:;" class="btn_num" onClick="add_num({$data.id},{$data.id})" title="增加数量" >+</a>
+                         </div>
+                                            </td>
+									</tr>
+								</tbody>
+							</table>
+						</div>{/foreach} <a href="goods_list.php?type=promote">
+						<div class="box last">更多</div>
+						</a> {/if} </div>
+				</div>
+			</li>
+		</ul>
+		
+	</div>
+</div>
+
+{include file='foot.html'}
+</body>
+</html>

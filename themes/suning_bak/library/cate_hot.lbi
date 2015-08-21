@@ -1,0 +1,51 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $hot_goods} -->
+
+<div class="cate_hot box_1">
+<div class=" title">今日推荐 </div>
+
+
+
+<div class="nei">
+<!-- {foreach from=$hot_goods item=goods name=hot} -->
+ <!-- {if $smarty.foreach.hot.iteration<5}-->
+
+
+
+<div class=" hot_item2">
+      <p  class="pic"><a href="{$goods.url}"><img style="width:120px; height:120px;" src="{$goods.thumb}" alt="{$goods.name|escape:html}"/></a></p>
+      
+      <div class="hot_item2_2">
+      
+      <p  class="name"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}<span>{$goods.brief}</span></a>
+      
+      
+      
+      </p> 
+      
+      <p class="price">
+  <!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}
+        <!--{/if}-->
+       
+      </p>
+      <div>
+     <a class="buy" href="javascript:addToCart({$goods.id})">购买 </a>
+      </div>
+      
+      </div>
+      
+      
+     </div>
+     <!-- {/if} -->
+ <!-- {/foreach} -->
+
+</div>
+
+
+</div>
+
+<div class="blank"></div>
+
+
+
+<!-- {/if} -->

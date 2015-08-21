@@ -1,0 +1,40 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+<div class="box_1 top10_left" >
+  <div class="title">热销排行</div>
+
+  <div class="aBuyM " >
+  <!-- {foreach name=top_goods from=$top_goods item=goods}-->
+    <!-- {if $smarty.foreach.top_goods.iteration<6}-->
+ 
+  <ul>
+<li class="goods_img">
+<a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a>
+</li>
+
+<li class="goods_text"> 
+<div class="name"><a  href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a></div>
+<div class="price"><b></b>{$goods.price}</div>
+
+</li>
+
+
+</ul>
+ 
+
+      
+ 
+    
+
+  <!-- {/if} -->	
+    
+    
+  <!-- {/foreach} -->
+  
+ </div>
+ 
+   </div>
+   
+   
+   
+   <div class="blank">   </div>

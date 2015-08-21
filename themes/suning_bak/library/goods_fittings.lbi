@@ -1,0 +1,99 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+<script>
+
+function qq (id) {
+	var str=document.getElementsByName("box[]");
+	if(document.getElementById("goods_id_"+id).checked ==false)
+	{
+		document.getElementById("goods_id_"+id).checked=true;
+	}
+	else
+	{
+		document.getElementById("goods_id_"+id).checked=false;
+	}
+	var start_price = {$goods.shop_price};
+   for(i=0;i<str.length;i++) {
+		   if(str[i].type=="checkbox" && str[i].checked) {
+                 start_price = parseFloat(start_price)+parseFloat(str[i].value);
+                }
+	}
+	document.getElementById("show_all_price").innerHTML="￥"+start_price+"元";
+}
+</script>
+ 
+<!-- {if $fittings} -->
+  <h3 class="h3_4" style="margin-left:10px;">
+       
+        <span style="font-weight:normal">优惠套装</span>
+ 
+     
+   </h3>
+ 
+  <div class="boxCenterList clearfix taozhuang" >
+  
+  <div class="f_l">
+ 
+ <form action="flow.php" method="post" name="ECS_ALL_addcart" >
+      <ul class="clearfix" style=" float:left; width:130px; border:none" >
+      <li class="goodsimg">
+     <a href="{$goods.url}" target="_blank"> <img src="{$goods.goods_img}" alt="{$goods.goods_name|escape:html}" class="B_blue"   />   <input name="goods_id[]" type="hidden"id="goods_id_{$goods.goods_id}" value="{$goods.goods_id}" > 
+     </a>
+   </li>
+      <li>
+       <a href="{$goods.url}" target="_blank" class="name">  {$goods.goods_style_name} </a> 
+      <font class="f1">{$goods.shop_price_formated}</font>
+   </li>
+    </ul>
+  
+  
+  
+  
+  <img style="float:left; padding-top:40px;" src="../images/jia.gif">
+  <div class="taozhuang_r"  >
+  <table cellpadding="0" cellspacing="0">
+  <tr>
+    <!--{foreach from=$fittings item=goods}-->
+    <td>
+    <div class="div_ul">
+      <li class="goodsimg">
+      <a href="{$goods.url}" target="_blank"><img src="{$goods.goods_thumb}" alt="{$goods.name|escape:html}" class="B_blue" /></a>
+      </li>
+      <li>
+      <a href="{$goods.url}" class="name" target="_blank" title="{$goods.goods_name|escape:html}">{$goods.short_name|escape:html}</a> 
+     <font class="f1">{$goods.fittings_price}</font> <input name="box[]" type="checkbox" id="goods_ids" value="{$goods.fittings_price_nformat}"  onClick="qq({$goods.goods_id});"> 
+	 
+	 <input name="goods_id[]" style="display:none;"  type="checkbox" id="goods_id_{$goods.goods_id}" value="{$goods.goods_id}" > 
+	
+<input name="step"  value="all_addcart" type="hidden" />
+      </li>
+    </div>
+    </td> 
+    <!--{/foreach}-->
+    
+    </tr>
+     </table> 
+    </div>
+ </div>
+    
+    
+  <div class="f_r">
+  
+  <div>优惠套装</div>
+  
+  <dl>套装价：   <font class="f1" id="show_all_price">{$goods.shop_price_formated}</font></dl>
+   <input  name="submit" type="image" value="优惠套装" src="../images/sub.gif" >
+    
+    
+  </div> 
+    
+    </form>
+    
+  </div>
+ 
+<div class="blank5"></div>
+<!-- {/if} -->
+
+
+
+

@@ -1,0 +1,39 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+ 
+
+<!-- {if $cat_rec_sign neq 1} zhangyh_100322 -->
+ 
+ <div class=" cat_box_r  "  >
+
+  <h3><span><ul id="itemCat{$goods_cat.id}">  
+  <li style="  border-left:none"><a style="" href="{$goods_cat.url}" onmouseover="change_tab_style('itemCat{$goods_cat.id}', 'li', this);get_cat_recommend(4, {$goods_cat.id},{$goods_cat.id});">特价热卖</a></li>
+  <!--{foreach name=childlist from=$goods_cat.children item=children name=no}-->
+   <!-- {if $smarty.foreach.no.iteration<6}-->
+  <li class="h2bg"><a href="category.php?id={$children.cat_id}" onmouseover="change_tab_style('itemCat{$goods_cat.id}', 'li', this);get_cat_recommend(4, {$children.cat_id},{$goods_cat.id})">{$children.cat_name}</a></li>
+   <!--{/if}-->
+  <!--{/foreach}-->
+  </ul>
+  </span>
+  </h3>
+
+    <div class="centerPadd">
+    <div class="clearfix  " style="border:none;" id="show_cat_area{$goods_cat.id}">
+    <!-- {/if} zhangyh_100322-->
+      <!--{foreach from=$cat_goods item=goods name=cat_goods}-->
+        <!-- {if $smarty.foreach.cat_goods.iteration<9}-->
+      <div class="goodsItem">
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a>
+           <div>
+           <p class="name"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name|escape:html}</a></p>
+            <p><!-- {if $goods.promote_price neq ""} --><font class="snPrice ">{$goods.promote_price}</font><!-- {else}--><font class="snPrice ">{$goods.shop_price}</font>
+          <!--{/if}--></p>
+           </div>
+        </div>
+         <!--{/if}-->
+      <!--{/foreach}-->
+    </div>
+    </div>
+ </div>
+ 
+ 

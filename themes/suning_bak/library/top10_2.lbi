@@ -1,0 +1,27 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <div class="  clearfix" >
+  <!-- {foreach name=top_goods from=$top_goods item=goods}-->
+  <!-- {if $smarty.foreach.top_goods.iteration<6}-->
+ 
+  
+<div class="goodsItem">
+     
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a><br />
+           <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</p>
+           
+           
+         本店价：<font class="f1">{$goods.price}</font> 
+        </div>
+ 
+    <!-- {else} --> 
+    
+    
+  <!-- {/if} -->
+  		
+    
+    
+  <!-- {/foreach} -->
+  
+ </div>
+   

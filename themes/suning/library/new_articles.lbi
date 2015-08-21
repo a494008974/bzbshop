@@ -1,0 +1,12 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+    <div class=" news   " >
+       <ul>  
+        <!--{foreach from=$new_articles item=article name=no}-->
+        <!-- {if $smarty.foreach.no.iteration<7}--> 
+		<li>
+        <a href="{$article.url}" title="{$article.title|escape:html}" <!--{if $smarty.foreach.no.index <=1}-->  style=' color:#f60'  <!-- {/if} -->>{$article.short_title}</a>
+		</li>
+        <!-- {/if} -->
+        <!--{/foreach}-->
+</ul>
+</div>

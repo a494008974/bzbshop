@@ -1,0 +1,91 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+ 
+<div class="brand_cat"> 
+<div class="tit"><span>品牌旗舰店</span><a href="brand.php">更多品牌></a></div>
+<ul class="ul_l">
+<li class="ul_l_li_on" onmouseover="this.className=' ul_l_li_on  ul_l_li'" onmouseout="this.className='ul_l_li '">
+<a href="#" ><img src="../images/pinpai3_1.jpg"  class="err-product"/></a>
+<div class="ul_r" style=" display:block; z-index:9">
+<a href="#" ><img  src="../images/pinpai3_1tu.jpg" ></a>
+<p><a  href="#">宏碁(ACER)笔记本V5-471G-323b2G50Mass(NX.M2RCN.012)</a></p>
+<em class="snPrice">¥3499.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#"><img  src="../images/pinpai3_2.jpg"  class="err-product"/></a>
+<div class="ul_r">
+<a href="#"  ><img  src="../images/pinpai3_2tu.jpg"></a>
+<p><a  href="#" >尼康数码单反相机D3100KIT（AF-S DX 18-55mm f/3.5-5.6G VR防抖镜头）黑</a></p>
+<em class="snPrice">¥3089.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#"><img  src="../images/pinpai3_3.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#" ><img  src="../images/pinpai3_3tu.jpg"></a>
+<p><a  href="#">华为手机G520-5000（白色） </a></p>
+<em class="snPrice">¥1299.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#"><img  src="../images/pinpai3_4.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#" ><img  src="../images/pinpai3_4tu.jpg"></a>
+<p><a href="#" >HP超级本Envy 11-g003TUHP变形金刚改本，精致工艺，完美体验。</a></p>
+<em class="snPrice">¥6999.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#" ><img  src="../images/pinpai3_5.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#"><img  src="../images/pinpai3_5tu.jpg"></a>
+<p><a   href="#" >摩托罗拉手机MT917沉稳优雅</a></p>
+<em class="snPrice">¥1599.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#" ><img  src="../images/pinpai3_6.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#" ><img  src="../images/pinpai3_6tu.jpg"></a>
+<p><a  href="#" name="dac_index_lc10718" >爱普生学习型一体机ME-101爱生活，追求时尚健康的生活方式，对打印机设计和占地空间有要求。</a></p>
+<em class="snPrice">¥529.00</em>
+</div>
+</li>
+</ul>
+
+
+</div>
+ 
+ 
+ 
+<div class="blank"></div> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

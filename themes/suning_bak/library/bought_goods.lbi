@@ -1,0 +1,28 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $bought_goods} -->
+ 
+    
+        
+   <div class="goumaig box_1" >
+     <h3 style=" padding-left:10px; "><span class="text">购买了此商品的还购买了</span></h3>
+      <ul class=" clearfix">
+       <!--{foreach from=$bought_goods item=bought_goods_data}-->
+       
+       <li class="goodsimg">
+	   <div class="goumai_img">
+         <a href="{$bought_goods_data.url}"><img src="{$bought_goods_data.goods_thumb}" alt="{$bought_goods_data.goods_name}"  class="B_blue"  /></a>
+		 </div> 
+         <div  class="name"><a href="{$bought_goods_data.url}" title="{$bought_goods_data.goods_name}">{$bought_goods_data.short_name}</a></div> 
+		 <div class="price" style="height:20px; font-family: arial;">
+         <!-- {if $bought_goods_data.promote_price neq 0} -->
+    <span> </span>{$bought_goods_data.formated_promote_price}
+        <!-- {else} -->
+       <span> </span>{$bought_goods_data.shop_price}
+        <!-- {/if} --> 
+		</div>
+       </li>
+        <!-- {/foreach} -->
+     </ul>
+     </div>
+    <div class="blank "></div>
+    <!-- {/if} -->

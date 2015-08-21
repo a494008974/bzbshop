@@ -1,0 +1,699 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<META content=IE=EmulateIE7 http-equiv=X-UA-Compatible>
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,index.js'}
+<script src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/SlideTrans.js"></script>
+ <SCRIPT type=text/javascript>
+window.pageConfig={
+	compatible:true,
+	navId:"home"
+};
+</SCRIPT>
+<script type="text/javascript">
+function $id(element) {
+  return document.getElementById(element);
+}
+//切屏--是按钮，_v是内容平台，_h是内容库
+function reg(str){
+  var bt=$id(str+"_b").getElementsByTagName("h2");
+  for(var i=0;i<bt.length;i++){
+    bt[i].subj=str;
+    bt[i].pai=i;
+    bt[i].style.cursor="pointer";
+    bt[i].onmousemove=function(){
+      $id(this.subj+"_v").innerHTML=$id(this.subj+"_h").getElementsByTagName("blockquote")[this.pai].innerHTML;
+      for(var j=0;j<$id(this.subj+"_b").getElementsByTagName("h2").length;j++){
+        var _bt=$id(this.subj+"_b").getElementsByTagName("h2")[j];
+        var ison=j==this.pai;
+        _bt.className=(ison?"":"h2bg");
+      }
+    }
+  }
+  $id(str+"_h").className="none";
+  $id(str+"_v").innerHTML=$id(str+"_h").getElementsByTagName("blockquote")[0].innerHTML;
+}
+
+function changeAtt(t) {
+t.lastChild.checked='checked';
+for (var i = 0; i<t.parentNode.childNodes.length;i++) {
+        if (t.parentNode.childNodes[i].className == 'cattsel') {
+            t.parentNode.childNodes[i].className = '';
+        }
+    }
+t.className = "cattsel";
+changePrice();
+}
+</script>
+</head>
+<body >
+<!-- #BeginLibraryItem "/library/page_header_index.lbi" --><!-- #EndLibraryItem -->
+
+<div class="block " style="overflow:hidden">
+<!-- #BeginLibraryItem "/library/index_ad.lbi" --> <!-- #EndLibraryItem -->
+
+<div class="blank"></div>
+<div class="index_l">
+<div class="proGroup1 proGroup">
+<div id="com1_b"  class="ff_1">
+    <h2>热门团购</h2>
+    <h2 class=" h2bg" >最新抢购 <img src="images/floorHot.png" width="23" height="7" /> </h2>
+    
+</div>      
+<div id="com1_v" class="best_gd_in" ></div>
+<div id="com1_h">
+<blockquote>
+<!-- TemplateBeginEditable name="团购商品" -->
+<!-- #BeginLibraryItem "/library/group_buy.lbi" -->
+
+<!-- {if $group_buy_goods} -->
+<div class="box best_gd">
+  <div class="best_gd_in ">
+
+  
+  
+   <ul>
+  <div  class="group_buy">
+
+      <!--{foreach from=$group_buy_goods item=goods name=group_buy_goods}-->
+      <li class="goodsItem"  <!--{if $smarty.foreach.group_buy_goods.index mod 5 eq 0}-->  style='margin-left:0;'  <!-- {/if} -->  >
+
+   
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.goods_name|escape:html}" class="goodsimg" /></a>  
+		   <div class="p_name"><a href="{$goods.url}" title="{$goods.goods_name|escape:html}">{$goods.short_style_name|escape:html}</a></div>
+		   <div class="p_pirce">
+                    <em class="snPrice">¥{$goods.last_price}</em>
+                    <a href="{$goods.url}" target="_blank">我要团</a>
+           </div>
+        </li>
+      <!--{/foreach}-->
+
+ </div>  
+ 
+ </ul>
+
+	
+  </div>
+	
+</div>
+ 
+<div class="blank"></div>
+
+<!-- {/if} -->
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+</blockquote>
+<blockquote>
+<!-- #BeginLibraryItem "/library/recommend_promotion2.lbi" --><!-- #EndLibraryItem -->
+</blockquote>
+</div>
+</div>
+</div>
+ <script type="text/javascript">
+    <!--
+    reg("com1");
+    //-->
+    </script>
+<div class="index_r">
+
+<div class="snNoice f_r">
+<div id="com2_b"  class="tit">
+    <h2><a href="#">公告咨询</a></h2>
+    <h2 class=" h2bg"><a href="#">促销信息</a></h2>
+    <h2 class=" h2bg"><a href="#">安心购</a></h2>
+ </div>   
+<div id="com2_v" ></div>
+<div id="com2_h">
+<blockquote>
+<!-- TemplateBeginEditable name="公告咨询" -->
+<!-- #BeginLibraryItem "/library/new_articles.lbi" -->
+ 
+    <div class=" news   " >
+       <ul>  
+        <!--{foreach from=$new_articles item=article name=no}-->
+        <!-- {if $smarty.foreach.no.iteration<7}--> 
+		<li>
+        <a href="{$article.url}" title="{$article.title|escape:html}" <!--{if $smarty.foreach.no.index <=1}-->  style=' color:#f60'  <!-- {/if} -->>{$article.short_title}</a>
+		</li>
+        <!-- {/if} -->
+        <!--{/foreach}-->
+</ul>
+</div>
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+ </blockquote>
+
+<blockquote>
+<!-- TemplateBeginEditable name="促销信息" -->
+<!-- #BeginLibraryItem "/library/cat_articles.lbi" -->
+
+ <div class=" news   " >
+       <ul>  
+  <!--{foreach from=$articles item=article_item name=no1}-->
+ <!-- {if $smarty.foreach.no1.iteration<7}--> 
+ <li>
+  <a href="{$article_item.url}" title="{$article_item.title|escape:html}">{$article_item.short_title}</a>  
+  </li>
+ <!-- {/if} -->
+  <!--{/foreach}-->
+  </ul>
+</div>
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+ </blockquote>
+ 
+ <blockquote>
+<!-- #BeginLibraryItem "/library/anxingou.lbi" --> <!-- #EndLibraryItem -->
+ </blockquote>
+</div>
+</div>
+  <script type="text/javascript">
+    <!--
+    reg("com2");
+    //-->
+    </script>
+
+
+<div class="gonggao_box">
+<div class="ff_1 ">
+    <h2 id="ECS_tree1" class=" tabFront" >发货查询</h2>
+    <h2 id="ECS_tree2" class=" tabBack" >订单查询</h2>
+     <h2 id="ECS_tree3" class=" tabBack" >在线调查</h2>
+</div>   
+<div style="clear:both"></div>
+<div  id="ECS_tree1_BODY">
+<div style="padding:5px;">
+<!-- TemplateBeginEditable name="发货查询" -->
+<!-- #BeginLibraryItem "/library/invoice_query.lbi" -->
+
+
+
+
+
+
+
+
+
+<div class="box">
+ <div class="  invo">
+<div id="brtup" style="overflow:hidden; height: 124px;">
+<div id="brtup1">
+
+
+<ul  id="brtup1ul" >
+<!--{foreach from=$invoice_list item=invoice} -->
+<li style="padding-top:6px;">
+ <table width="100%" cellpadding="0" cellspacing="0" border="0">
+		  <tr>
+			  <td width="45%" align="left">&nbsp;{$lang.order_number}:&nbsp;</td>
+			  <td>{$invoice.order_sn}</td>
+		  </tr>
+		  <tr >
+			  <td  align="left">&nbsp;{$lang.consignment}:&nbsp;</td>
+			  <td >{$invoice.invoice_no}</td>
+		  </tr>
+	  </table>
+   <div style="height:10px; border-bottom:1px dashed #ccc; width:100%;"></div>
+
+</li>
+<!--{/foreach}-->
+</ul>
+</div>
+<div id="brtup2"> </div>
+</div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+var speed=30;
+var brtup=document.getElementById('brtup');
+var brtup1=document.getElementById('brtup1');
+var brtup2=document.getElementById('brtup2');
+var brtup1ul=document.getElementById('brtup1ul');
+var result = "";
+for(var i=0; i<25; i++) result += brtup1ul.innerHTML;
+brtup1ul.innerHTML=result
+brtup2.innerHTML=brtup1.innerHTML
+function Marquee1(){
+if(brtup2.offsetHeight-brtup.scrollTop<=0)
+brtup.scrollTop-=brtup1.offsetHeight
+else{
+brtup.scrollTop++
+}
+}
+var MyMar1=setInterval(Marquee1,speed)
+brtup.onmouseover=function() {clearInterval(MyMar1)}
+brtup.onmouseout=function() {MyMar1=setInterval(Marquee1,speed)}
+</script>
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+</div>
+<div id="ECS_tree2_BODY" style="display:none;">
+
+<div style="padding:5px;">
+
+<!-- TemplateBeginEditable name="订单查询" -->
+<!-- #BeginLibraryItem "/library/order_query.lbi" -->
+
+<!--{if empty($order_query)}-->
+<script>var invalid_order_sn = "{$lang.invalid_order_sn}"</script>
+<div class="box">
+ <div class=" ">
+ <div class="blank"></div>
+ <div class="blank"></div>
+  <div class="boxCenterList">
+    <form name="ecsOrderQuery">
+    <input type="text" name="order_sn" class="inputBg" /><br />
+    <div class="blank5"></div>
+    <input type="button" value="{$lang.query_order}" class="bnt_blue_2" onclick="orderQuery()" />
+    </form>
+    <div id="ECS_ORDER_QUERY" style="margin-top:8px;">
+      <!--{else}-->
+      <!--{if $order_query.user_id}-->
+<b>{$lang.order_number}：</b><a href="user.php?act=order_detail&order_id={$order_query.order_id}" class="f6">{$order_query.order_sn}</a><br>
+  <!--{else}-->
+<b>{$lang.order_number}：</b>{$order_query.order_sn}<br>
+  <!--{/if}-->
+<b>{$lang.order_status}：</b><br><font class="f1">{$order_query.order_status}</font><br>
+  <!--{if $order_query.invoice_no }-->
+<b>{$lang.consignment}：</b>{$order_query.invoice_no}<br>
+  <!--{/if}-->
+      {if $order_query.shipping_date}：{$lang.shipping_date} {$order_query.shipping_date}<br>
+  <!--{/if}-->
+  <!--{/if}-->
+    </div>
+  </div>
+ </div>
+</div>
+<div class="blank5"></div>
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+</div>
+<div   id="ECS_tree3_BODY" style="display:none;">
+
+<div style="padding:5px;">
+
+<!-- TemplateBeginEditable name="在线调查" -->
+<!-- #BeginLibraryItem "/library/vote_list.lbi" -->
+
+{insert name='vote'}
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+</div>
+</div>
+<div class="blank"></div>
+<script type="text/javascript">
+//<![CDATA[
+{literal}
+  var cycleList = ['ECS_tree1','ECS_tree2','ECS_tree3'];
+  var tabFront = 'tabFront';
+  var tabBack = 'tabBack';
+  function cycleShow(obj)
+  {
+    var curObj;
+    var curBody;
+    for (i=0; i < cycleList.length; i++)
+    {
+      curObj = document.getElementById(cycleList[i]);
+      curBody = document.getElementById(cycleList[i] + '_BODY');
+      if (obj.id == curObj.id)
+      {
+        curObj.className = tabFront;
+        curBody.style.display = "";
+      }
+      else
+      {
+        curObj.className = tabBack;
+        curBody.style.display = "none";
+      }
+    }
+  }
+
+  // 添加事件
+  for (i=0; i< cycleList.length; i++)
+  {
+    document.getElementById(cycleList[i]).onmousemove = function()
+    {
+      cycleShow(this);
+    };
+  }
+{/literal}
+//]]>
+</script>
+
+
+ 
+
+</div>
+ 
+<div class="blank"></div>
+
+
+<div class="index_l">
+
+
+<div class="proGroup">
+<div class="ff_1">
+<h2 id="ECS_treea1" class="tabFront" >热销</h2>
+<h2 id="ECS_treea2" class="tabBack"> 新品</h2>
+<h2 id="ECS_treea3" class="tabBack">推荐商品</h2>
+<h2 id="ECS_treea4" class="tabBack">疯狂抢购</h2>
+</div>
+<div id="ECS_treea1_BODY">
+<!-- TemplateBeginEditable name="滚动热卖区" -->
+<!-- #BeginLibraryItem "/library/recommend_hot.lbi" -->
+ 
+  
+  <!-- {if $hot_goods} -->
+  <div class="proArae hotArea" >
+  <dl>
+  <dt>
+ <a href="#"  target="_blank"><img width="300" height="260" src="../images/hot_l.jpg" ></a>
+</dt>
+<dd>
+<div class="proItemMain">
+  <!--{foreach from=$hot_goods item=goods name=hot_goods}-->
+   <!-- {if $smarty.foreach.hot_goods.iteration<5}-->
+  
+ <div class="goodsItem">    
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a><br />
+           <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+           
+          <em class="snPrice">¥
+         
+           <!-- {if $goods.promote_price neq ""} -->
+          {$goods.promote_price}
+          <!-- {else}-->
+          {$goods.shop_price}
+          <!--{/if}-->
+         </em>
+        </div>
+		<!--{/if}-->
+  <!--{/foreach}-->
+  </div>
+  <div class="proAreaimg">
+
+<a href="#"  target="_blank"><img width="295" height="60" src="../images/hot_r1.jpg" ></a>
+
+<a href="#"  target="_blank"><img width="295" height="60" src="../images/hot_r2.jpg" ></a>
+
+</div>
+  </dd>
+  </dl>
+ </div>
+
+
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+<div id="ECS_treea2_BODY" style="display:none;">
+<!-- TemplateBeginEditable name="滚动新品区" -->
+<!-- #BeginLibraryItem "/library/recommend_new.lbi" -->
+
+ 
+  
+  <!-- {if $new_goods} -->
+  
+ <div class="proArae hotArea" >
+  <dl>
+  <dt>
+ <a href="#"  target="_blank"><img width="300" height="260" src="../images/new_l.jpg" ></a>
+</dt>
+<dd>
+<div class="proItemMain">
+  <!--{foreach from=$new_goods item=goods name=new_goods}-->
+   <!-- {if $smarty.foreach.new_goods.iteration<5}-->
+ <div class="goodsItem">
+     
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a><br />
+           <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+           
+            <em class="snPrice">¥
+           <!-- {if $goods.promote_price neq ""} -->
+          {$goods.promote_price}
+          <!-- {else}-->
+          {$goods.shop_price}
+          <!--{/if}-->
+           </em>
+        </div>
+		<!--{/if}-->
+  <!--{/foreach}-->
+ </div>
+  <div class="proAreaimg">
+
+<a href="#"  target="_blank"><img width="295" height="60" src="../images/new_r1.jpg" ></a>
+
+<a href="#"  target="_blank"><img width="295" height="60" src="../images/new_r2.jpg" ></a>
+
+</div>
+  </dd>
+  </dl>
+ </div>
+
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+<div id="ECS_treea3_BODY" style="display:none;">
+<!-- TemplateBeginEditable name="滚动推荐区" -->
+<!-- #BeginLibraryItem "/library/recommend_best.lbi" -->
+
+ 
+  
+  <!-- {if $best_goods} -->
+ <div class="proArae hotArea" >
+  <dl>
+  <dt>
+ <a href="#"  target="_blank"><img width="300" height="260" src="../images/best_l.jpg" ></a>
+</dt>
+<dd>
+<div class="proItemMain">
+  <!--{foreach from=$best_goods item=goods name=best_goods}-->
+   <!-- {if $smarty.foreach.best_goods.iteration<5}-->
+  
+ <div class="goodsItem">
+     
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a><br />
+           <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+           
+          <em class="snPrice">¥
+           <!-- {if $goods.promote_price neq ""} -->
+          {$goods.promote_price}
+          <!-- {else}-->
+          {$goods.shop_price}
+          <!--{/if}-->
+           </em>
+        </div>
+		 <!--{/if}-->
+  <!--{/foreach}-->
+ </div>
+  <div class="proAreaimg">
+
+<a href="#"  target="_blank"><img width="295" height="60" src="../images/best_r1.jpg" ></a>
+
+<a href="#"  target="_blank"><img width="295" height="60" src="../images/best_r2.jpg" ></a>
+
+</div>
+  </dd>
+  </dl>
+ </div>
+
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+<div id="ECS_treea4_BODY" style="display:none;">
+<!-- TemplateBeginEditable name="滚动抢购区" -->
+<!-- #BeginLibraryItem "/library/recommend_promotion.lbi" -->
+
+<!-- {if $promotion_goods} -->
+ <div class="proArae hotArea" >
+  <dl>
+  <dt>
+ <a href="#"  target="_blank"><img width="300" height="260" src="../images/tejia_l.jpg" ></a>
+</dt>
+<dd>
+<div class="proItemMain">
+<!--{foreach from=$promotion_goods item=goods name=promotion_goods}-->
+<!-- {if $smarty.foreach.promotion_goods.iteration>5 && $smarty.foreach.promotion_goods.iteration<10}-->
+ 
+  <div class="goodsItem">
+           <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a><br />
+           <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+          <em class="snPrice">¥
+         {$goods.promote_price}
+          </em>
+		</div>  
+ <!-- {/if} -->
+<!--{/foreach}-->
+ </div>
+  <div class="proAreaimg">
+
+<a href="#"  target="_blank"><img width="295" height="60" src="../images/tejia_r1.jpg" ></a>
+
+<a href="#"  target="_blank"><img width="295" height="60" src="../images/tejia_r2.jpg" ></a>
+
+</div>
+  </dd>
+  </dl>
+ </div>
+<!-- {/if} -->
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+</div>
+ 
+ <script type="text/javascript">
+//<![CDATA[
+{literal}
+  var cycleLista = ['ECS_treea1','ECS_treea2','ECS_treea3','ECS_treea4'];
+  var tabFronta = 'tabFront';
+  var tabBacka = 'tabBack';
+  function cycleShowa(obj)
+  {
+    var curObja;
+    var curBodya;
+    for (i=0; i < cycleLista.length; i++)
+    {
+      curObja = document.getElementById(cycleLista[i]);
+      curBodya = document.getElementById(cycleLista[i] + '_BODY');
+      if (obj.id == curObja.id)
+      {
+        curObja.className = tabFront;
+        curBodya.style.display = "";
+      }
+      else
+      {
+        curObja.className = tabBack;
+        curBodya.style.display = "none";
+      }
+    }
+  }
+
+  // 添加事件
+  for (i=0; i< cycleLista.length; i++)
+  {
+    document.getElementById(cycleLista[i]).onmousemove = function()
+    {
+      cycleShowa(this);
+    };
+  }
+{/literal}
+//]]>
+</script>
+
+
+ </div>
+
+
+<div class="index_r">
+<div class="snNoice snSub  f_r" style="height:290px;">
+<div id="com3_b"  class="tit">
+    <h2><a href="#">独家首发</a></h2>
+    <h2 class=" h2bg"><a href="#">热卖商品</a></h2>
+    <h2 class=" h2bg"><a href="#">精品推荐</a></h2>
+ </div>   
+<div id="com3_v" ></div>
+<div id="com3_h">
+<blockquote>
+
+<!-- #BeginLibraryItem "/library/shoufa.lbi" --> <!-- #EndLibraryItem -->
+
+ </blockquote>
+
+<blockquote>
+<!-- #BeginLibraryItem "/library/remaisp.lbi" --> <!-- #EndLibraryItem -->
+<div style="margin: 5px 10px -1px;">
+<!-- TemplateBeginEditable name="右侧热卖下广告" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+ 
+{insert name='ads' id=$ads_id num=$ads_num}
+<div class="blank"></div>
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+ </blockquote>
+ 
+ <blockquote>
+<!-- #BeginLibraryItem "/library/jingpintj.lbi" --> <!-- #EndLibraryItem -->
+ </blockquote>
+</div>
+</div>
+  <script type="text/javascript">
+    <!--
+    reg("com3");
+    //-->
+    </script>
+
+</div>
+
+
+<div class="blank"></div>
+
+
+<!-- ***************************************************************************************** -->
+
+<!-- ***************************************************************************************** -->
+
+<div class="blank"></div>
+
+
+
+<div class="index_r zhai_no">
+<!-- #BeginLibraryItem "/library/cat_6.lbi" --><!-- #EndLibraryItem -->
+</div>
+
+<div class="blank"></div>
+<div class="index_l">
+ <!-- #BeginLibraryItem "/library/index_comm.lbi" --><!-- #EndLibraryItem -->
+ </div>
+ <div class="index_r  "> 
+ <div class="weibo f_r">
+<!-- #BeginLibraryItem "/library/guanzhu.lbi" --><!-- #EndLibraryItem -->
+<div class="blank"></div>
+<div class="blank"></div>
+<!-- #BeginLibraryItem "/library/email_list.lbi" --><!-- #EndLibraryItem -->
+</div>
+
+</div>
+
+</div>
+
+
+<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+
+</body>
+</html>

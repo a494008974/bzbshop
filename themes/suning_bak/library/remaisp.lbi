@@ -1,0 +1,22 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="lipinhui">
+<ul>
+ <!--{foreach from=$hot_goods item=goods name=hot_goods}-->
+   <!-- {if $smarty.foreach.hot_goods.iteration>4 && $smarty.foreach.hot_goods.iteration<6}-->
+<li>
+<p> <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+<em class="snPrice">
+         
+           <!-- {if $goods.promote_price neq ""} -->
+          {$goods.promote_price}
+          <!-- {else}-->
+          {$goods.shop_price}
+          <!--{/if}-->
+         </em>
+<div><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}"  style="width:100px; height:100px;"/></a></div>
+</li>
+  <!--{/if}-->
+  <!--{/foreach}-->
+</ul>
+</div>
+<div class="blank"></div>

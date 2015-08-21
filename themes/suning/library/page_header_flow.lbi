@@ -1,0 +1,79 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/transport.js"></script>
+<script src="themes/<?php echo $GLOBALS['_CFG']['template']; ?>/js/js.js"></script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+
+
+
+
+
+<div class="topNav">
+
+<div class="block960">
+<div class="f_l">
+<a style="cursor: pointer"  
+onClick="window.external.AddFavorite(location.href,document.title);">收藏</a> 
+|    
+ {insert_scripts files='utils.js'}
+   <font id="ECS_MEMBERZONE">{* 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} </font>
+</div>
+<div class="f_r">
+
+ <div class="f_l log"  style="position:relative; z-index:999999999; ">
+  <ul class="ul1" onmouseover="this.className='ul1 ul1_on'" onmouseout="this.className='ul1'">
+ <a class="a1" href="user.php">我的账户</a>
+  <div class="ul1_float">
+  
+  <ul>
+  
+     <a href="user.php?act=order_list">我的订单</a>
+     <a href="user.php?act=message_list">我的留言</a>
+     <a href="user.php?act=collection_list">我的收藏</a>
+     <a href="user.php?act=affiliate">我的推荐</a>
+     <a href="user.php?act=profile">用户信息</a>
+     <a href="user.php?act=address_list">收货地址</a>
+     
+ </ul>    
+  </div>
+    <div class="dang"></div>
+ </ul>
+ 
+ 
+ 
+  
+  
+  
+ </div>
+    <!--{if $navigator_list.top}-->
+
+    <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->  
+    |
+    
+     <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+           
+           
+         
+    <!-- {/foreach} --> <!-- {/if} -->
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+ 
+
+ 

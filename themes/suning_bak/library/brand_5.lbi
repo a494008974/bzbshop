@@ -1,0 +1,91 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+ 
+<div class="brand_cat"> 
+<div class="tit"><span>品牌旗舰店</span><a href="brand.php">更多品牌></a></div>
+<ul class="ul_l">
+<li class="ul_l_li_on" onmouseover="this.className=' ul_l_li_on  ul_l_li'" onmouseout="this.className='ul_l_li '">
+<a href="#" ><img src="../images/pinpai5_1.jpg"  class="err-product"/></a>
+<div class="ul_r" style=" display:block; z-index:9">
+<a href="#" ><img  src="../images/pinpai5_1tu.jpg" ></a>
+<p><a  href="#">LG彩电47LS4100-CA </a></p>
+<em class="snPrice">¥4599.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#"><img  src="../images/pinpai5_2.jpg"  class="err-product"/></a>
+<div class="ul_r">
+<a href="#"  ><img  src="../images/pinpai5_2tu.jpg"></a>
+<p><a  href="#" >奥克斯空调KFR-35GW/SFT+2（铜管）</a></p>
+<em class="snPrice">¥2179.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#"><img  src="../images/pinpai5_3.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#" ><img  src="../images/pinpai5_3tu.jpg"></a>
+<p><a  href="#">珂兰钻石晨曦18K金大溪地黑珍珠吊坠9-10mm本商品不支持货到付款。</a></p>
+<em class="snPrice">¥731.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#"><img  src="../images/pinpai5_4.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#" ><img  src="../images/pinpai5_4tu.jpg"></a>
+<p><a href="#" >SPORTICA斯波帝卡立领隐形连帽双层夹克272896土黄色(L)不简单的简约防水防风夹克。</a></p>
+<em class="snPrice">¥259.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#" ><img  src="../images/pinpai5_5.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#"><img  src="../images/pinpai5_5tu.jpg"></a>
+<p><a   href="#" >361°综训鞋7234406黑/蓝42超轻、舒适。</a></p>
+<em class="snPrice">¥269.00</em>
+</div>
+</li>
+</ul>
+
+
+<ul class="ul_l">
+<li class="ul_l_li" onmouseover="this.className='ul_l_li  ul_l_li_on'" onmouseout="this.className='ul_l_li'">
+<a href="#" ><img  src="../images/pinpai5_6.jpg" class="err-product"></a>
+<div class="ul_r">
+<a href="#" ><img  src="../images/pinpai5_6tu.jpg"></a>
+<p><a  href="#" name="dac_index_lc10718" >D&amp;G手表DW0744全钢指针日历显示。</a></p>
+<em class="snPrice">¥1505.00</em>
+</div>
+</li>
+</ul>
+
+
+</div>
+ 
+ 
+ 
+<div class="blank"></div> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

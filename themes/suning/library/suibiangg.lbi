@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="suibiangg">
+<ul>
+ <!--{foreach from=$best_goods item=goods name=best_goods}-->
+  <!-- {if $smarty.foreach.hot_goods.iteration<7}-->
+<li>
+<p> <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+<em class="snPrice">¥288.0</em>
+<div><a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}"  style="width:100px; height:100px;"/></a></div>
+</li>
+  <!--{/if}-->
+  <!--{/foreach}-->
+<li>
+
+<a href="#"  target="_blank"><img width="268" height="100" src="../images/lipinhui_ad.jpg"></a>
+
+</li>
+</ul>
+</div>
