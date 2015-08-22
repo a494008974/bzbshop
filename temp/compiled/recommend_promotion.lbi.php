@@ -14,18 +14,18 @@ echo $this->_echash . $k['name'] . '|' . serialize($k) . $this->_echash;
 </dt>
 <dd>
 <div class="proItemMain">
-<?php $_from = $this->_var['promotion_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_34025600_1440040077');$this->_foreach['promotion_goods'] = array('total' => count($_from), 'iteration' => 0);
+<?php $_from = $this->_var['promotion_goods']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array'); }; $this->push_vars('', 'goods_0_11392900_1440207364');$this->_foreach['promotion_goods'] = array('total' => count($_from), 'iteration' => 0);
 if ($this->_foreach['promotion_goods']['total'] > 0):
-    foreach ($_from AS $this->_var['goods_0_34025600_1440040077']):
+    foreach ($_from AS $this->_var['goods_0_11392900_1440207364']):
         $this->_foreach['promotion_goods']['iteration']++;
 ?>
 <?php if ($this->_foreach['promotion_goods']['iteration'] > 5 && $this->_foreach['promotion_goods']['iteration'] < 10): ?>
  
   <div class="goodsItem">
-           <a href="<?php echo $this->_var['goods_0_34025600_1440040077']['url']; ?>"><img src="<?php echo $this->_var['goods_0_34025600_1440040077']['thumb']; ?>" alt="<?php echo htmlspecialchars($this->_var['goods_0_34025600_1440040077']['name']); ?>" class="goodsimg" /></a><br />
-           <p><a href="<?php echo $this->_var['goods_0_34025600_1440040077']['url']; ?>" title="<?php echo htmlspecialchars($this->_var['goods_0_34025600_1440040077']['name']); ?>"><?php echo $this->_var['goods_0_34025600_1440040077']['short_style_name']; ?></a></p>
+           <a href="<?php echo $this->_var['goods_0_11392900_1440207364']['url']; ?>"><img src="<?php echo $this->_var['goods_0_11392900_1440207364']['thumb']; ?>" alt="<?php echo htmlspecialchars($this->_var['goods_0_11392900_1440207364']['name']); ?>" class="goodsimg" /></a><br />
+           <p><a href="<?php echo $this->_var['goods_0_11392900_1440207364']['url']; ?>" title="<?php echo htmlspecialchars($this->_var['goods_0_11392900_1440207364']['name']); ?>"><?php echo $this->_var['goods_0_11392900_1440207364']['short_style_name']; ?></a></p>
           <em class="snPrice">
-         <?php echo $this->_var['goods_0_34025600_1440040077']['promote_price']; ?>
+         <?php echo $this->_var['goods_0_11392900_1440207364']['promote_price']; ?>
           </em>
 		</div>  
  <?php endif; ?>
