@@ -4,6 +4,10 @@
 $_LANG['on'] = '开启';
 $_LANG['off'] = '关闭';
 
+
+$_LANG['auto_affiliate'] = '自动分成：';
+$_LANG['auto_affiliate_expire'] = '自动分成时间：';
+
 $_LANG['separate_by'][0] = '推荐注册分成';
 $_LANG['separate_by'][1] = '推荐订单分成';
 
@@ -34,4 +38,8 @@ $_LANG['help_lpa'] = '订单积分的此百分比部分作为分成用积分。'
 $_LANG['help_lma'] = '订单金额的此百分比部分作为分成用金额。';
 $_LANG['help_lra'] = '介绍会员注册，介绍人所能获得的等级积分。';
 $_LANG['help_lru'] = '等级积分到此上限则不再奖励介绍注册积分。';
+
+$_LANG['help_auto_affiliate'] = '订单成交后自动分成';
+$_LANG['help_auto_affiliate_expire'] = '自动分成时间设置';
+
 ?>

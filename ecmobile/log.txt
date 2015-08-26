@@ -74,3 +74,41 @@ array (
 )
 执行日期：20150821164808
 *************login end****************
+执行日期：20150824115449
+************login begin*****************
+执行日期：20150824115449
+array (
+)
+执行日期：20150824115449
+array (
+  'password' => '123123',
+  'name' => 'chen3333',
+  'session' => '',
+  'pagination' => '',
+)
+执行日期：20150824115449
+array (
+  'session' => 
+  array (
+    'sid' => 'fa6d8993d9ac8731d9fbdf548c5b4f11349effb1',
+    'uid' => '9',
+  ),
+  'user' => 
+  array (
+    'id' => '9',
+    'name' => 'chen3333',
+    'rank_name' => '注册用户',
+    'rank_level' => 0,
+    'collection_num' => '0',
+    'email' => 'chen@333.com',
+    'order_num' => 
+    array (
+      'await_pay' => '0',
+      'await_ship' => '0',
+      'shipped' => '0',
+      'finished' => '1',
+    ),
+  ),
+)
+执行日期：20150824115449
+*************login end****************

@@ -1,4 +1,8 @@
 eclipse.preferences.version=1
+encoding//admin/templates/affiliate_list.htm=UTF-8
+encoding//admin/templates/article_list.htm=UTF-8
+encoding//admin/templates/auction_info.htm=UTF-8
+encoding//admin/templates/snatch_info.htm=UTF-8
 encoding//themes/default=UTF-8
 encoding//themes/default/style_coffee.css=UTF-8
 encoding//themes/suning/style.css=UTF-8

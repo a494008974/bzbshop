@@ -4,6 +4,8 @@
 
 $_LANG['order_id'] = '订单号';
 $_LANG['affiliate_separate'] = '分成';
+$_LANG['a_key_affiliate_separate'] = '一键分成';
+
 $_LANG['affiliate_cancel'] = '取消';
 $_LANG['affiliate_rollback'] = '撤销';
 $_LANG['log_info'] = '操作信息';

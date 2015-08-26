@@ -341,7 +341,7 @@
         <!-- 开始收货人信息填写界面 -->
       
   <div class="heard_flow"> 
-   <div class="flowlogo"><a  href="../index.php" name="top"><img src="../images/logo.gif" /> </a></div>
+   <div class="flowlogo"><a  href="../index.php" name="top"><img src="../images/logo.png" /> </a></div>
   <div class="step_out"><span class="span2"><a title="我的购物车" href="flow.php">1.我的购物车</a></span></div>
   
   </div>
@@ -373,7 +373,7 @@
 
         <!-- {if $step eq "checkout"} 开始订单确认界面 -->
             <div class="heard_flow"> 
-   <div class="flowlogo"><a  href="../index.php" name="top"><img src="../images/logo.gif" /> </a></div>
+   <div class="flowlogo"><a  href="../index.php" name="top"><img src="../images/logo.png" /> </a></div>
   <div class="step_out"><span class="span2"><a title="我的购物车" href="flow.php">1.我的购物车</a></span></div>
   
   </div>
@@ -715,7 +715,7 @@
                
   
    <div class="heard_flow"> 
-   <div class="flowlogo"><a  href="../index.php" name="top"><img src="../images/logo.gif" /> </a></div>
+   <div class="flowlogo"><a  href="../index.php" name="top"><img src="../images/logo.png" /> </a></div>
   <div class="step_out"><span class="span3"></span></div>
   
   </div>
@@ -842,7 +842,7 @@
         <!-- 开始用户登录注册界面 -->
           
   <div class="heard_flow"> 
-   <div class="flowlogo"><a href="index.php" name="top"><img src="themes/suning/images/logo.gif"> </a></div>
+   <div class="flowlogo"><a href="index.php" name="top"><img src="themes/suning/images/logo.png"> </a></div>
   <div class="step_out"><span class="span2"><a title="我的购物车" href="flow.php">1.我的购物车</a></span></div>
   
   </div>

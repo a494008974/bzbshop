@@ -11,6 +11,7 @@
 <input type="submit" value="{$lang.button_submit}" class="button" id="btnon"/>
 </form>
 </div>
+
 <div id="separate">
 <div class="form-div">
 <form method="post" action="affiliate.php">
@@ -53,10 +54,34 @@
                     <td><input type="text" name="level_register_up" maxlength="150" size="10" value="{$config.config.level_register_up}" />
                     <br />
                     <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="notice5">{$lang.help_lru|nl2br}</span></td>
+                </tr>
+                
+                <tr>
+                    <td align="right" class="label"><a href="javascript:showNotice('notice6');" title="{$lang.auto_affiliate}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}" /></a>{$lang.auto_affiliate}</td>
+                    <td>
+                    <input type="radio" name="on_auto" value="on" {if $config.config.on_auto eq "on"} checked="true" {/if}/>{$lang.on}
+					<input type="radio" name="on_auto" value="off" {if $config.config.on_auto neq "on"} checked="true" {/if} />{$lang.off}
+                     <br />
+                     <br />
+                    <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="notice6">{$lang.help_auto_affiliate|nl2br}</span></td>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td align="right" class="label"><a href="javascript:showNotice('notice7');" title="{$lang.auto_affiliate_expire}"><img src="images/notice.gif" width="16" height="16" border="0" alt="{$lang.form_notice}" /></a>{$lang.auto_affiliate_expire}</td>
+                    <td><input type="text" name="auto_expire" maxlength="150" size="10" value="{$config.config.auto_expire}" />
+                        <select name="auto_expire_unit">
+                            {html_options options=$lang.unit selected=$config.config.auto_expire_unit}
+                        </select>
+                        <br />
+                        <span class="notice-span" {if $help_open}style="display:block" {else} style="display:none" {/if} id="notice7">{$lang.help_auto_affiliate_expire|nl2br}</span>                        
+                    </td>
+                </tr>
+                	
                 <tr><td></td>
                     <td><input type="hidden" name="act" value="updata" /><input type="submit" value="{$lang.button_submit}" class="button" /></td>
                 </tr>
-                </tr>
+                
             </table>
     </form>
 </div>
@@ -96,10 +121,9 @@ var all_null = '{$lang.all_null}';
 {literal}
 onload = function()
 {
-  // 开始检查订单
   startCheckOrder();
   cleanWhitespace(document.getElementById("listDiv"));
-  if (document.getElementById("listDiv").childNodes[0].rows.length<6)
+  if (document.getElementById("listDiv").childNodes[0].rows.length<7)
   {
     listTable.addRow(check);
   }

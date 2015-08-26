@@ -56,14 +56,14 @@
 		  </td>
 		</tr>
 		<tr>
-		  <td width="8%" align="right" <!-- {if $field.is_need} -->id="passwd_quesetion"<!--{/if}-->><!-- {if $field.is_need} --><span style="color:#FF0000"> *</span><!-- {/if} -->密码问题答案：</td>
+		  <td width="8%" align="right"> <!-- {if $field.is_need} -->id="passwd_quesetion"<!--{/if}-->><!-- {if $field.is_need} --><span style="color:#FF0000"> *</span><!-- {/if} -->密码问题答案：</td>
 		  <td align="left">
 		  <input name="passwd_answer" type="text" size="25" class="common-input" maxlengt='20' value="{$profile.passwd_answer}"/>
 		  </td>
 		</tr>
 		<!-- {else} -->
 		<tr>
-			<td width="8%" align="right" <!-- {if $field.is_need} -->id="extend_field{$field.id}i"<!--{/if}-->><!-- {if $field.is_need} --><span style="color:#FF0000"> *</span><!-- {/if} -->{$field.reg_field_name}：</td>
+			<td width="8%" align="right"><!-- {if $field.is_need} -->id="extend_field{$field.id}i"<!--{/if}-->><!-- {if $field.is_need} --><span style="color:#FF0000"> *</span><!-- {/if} -->{$field.reg_field_name}：</td>
 			<td align="left">
 			<input name="extend_field{$field.id}" type="text" class="common-input" value="{$field.content}"/>
 			</td>

@@ -256,7 +256,7 @@ onClick="window.external.AddFavorite(location.href,document.title);">收藏</a>
 
 <div   class="block clearfix" style=" position:relative; z-index:999; ">
  <div class="logo  " >
- <a  href="../index.php" name="top"><img src="../images/logo.gif" /></a></div>
+ <a  href="../index.php" name="top"><img src="../images/logo.png" /></a></div>
 <div id="search" >   
   <form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()"  >
   <div class="B_input_box">

@@ -25,9 +25,9 @@
     <td><select name="goods_id" id="goods_id" onchange="javascript:change_good_products();">
       <option value="{$auction.goods_id}" selected="selected">{$auction.goods_name}</option>
     </select>
-    <select name="product_id" {if $auction.product_id <= 0}style="display:none"{/if}>
+    <select name="product_id"> {if $auction.product_id <= 0}style="display:none"{/if}>
         {html_options options=$good_products_select selected=$auction.product_id}
-        </select></td>
+    </select></td>
   </tr>
   <tr>
     <td class="label">{$lang.label_start_time}</td>
@@ -88,11 +88,11 @@ var display_yes = (Browser.isIE) ? 'block' : 'table-row-group';
 
 onload = function()
 {
-    // 开始检查订单
+    // 寮�妫�煡璁㈠崟
     startCheckOrder();
 }
 /**
- * 检查表单输入的数据
+ * 妫�煡琛ㄥ崟杈撳叆鐨勬暟鎹�
  */
 function validate()
 {
@@ -143,11 +143,11 @@ function searchGoodsResponse(result)
 
   if (result.error == 0)
   {
-    /* 清除 options */
+    /* 娓呴櫎 options */
     sel.length = 0;
     sp.length = 0;
 
-    /* 创建 options */
+    /* 鍒涘缓 options */
     var goods = result.content.goods;
     if (goods.length)
     {
@@ -167,7 +167,7 @@ function searchGoodsResponse(result)
       sel.options.add(opt);
     }
 
-    /* 创建 product options */
+    /* 鍒涘缓 product options */
     var products = result.content.products;
     if (products.length)
     {
@@ -210,10 +210,10 @@ function searchProductsResponse(result)
 
   if (result.error == 0)
   {
-    /* 清除 options */
+    /* 娓呴櫎 options */
     sp.length = 0;
 
-    /* 创建 product options */
+    /* 鍒涘缓 product options */
     var products = result.content.products;
     if (products.length)
     {

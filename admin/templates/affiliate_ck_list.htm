@@ -12,10 +12,17 @@
   <a href="affiliate_ck.php?act=list&status=1">{$lang.sch_stats.1}</a>
   <a href="affiliate_ck.php?act=list&status=2">{$lang.sch_stats.2}</a>
 {$lang.sch_order}
-
 <input type="hidden" name="act" value="list" />
 <input name="order_sn" type="text" id="order_sn" size="15"><input type="submit" value="{$lang.button_search}" class="button" />
 </form>
+<br>
+
+<form action="affiliate_ck.php" method="post">
+<input type="hidden" name="act" value="separate" />
+<input type="hidden" name="oid" value="all" />
+<input type="submit" value="{$lang.a_key_affiliate_separate}" class="button" />
+</form>
+
 {/if}
 </div>
 <form method="post" action="" name="listForm">
@@ -70,7 +77,6 @@ listTable.filter.{$key} = '{$item}';
 <!-- {literal} -->
 onload = function()
 {
-  // 开始检查订单
   startCheckOrder();
 }
 <!-- {/literal} -->

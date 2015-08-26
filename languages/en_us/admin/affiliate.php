@@ -4,6 +4,7 @@
 
 $_LANG['on'] = 'Open';
 $_LANG['off'] = 'Close';
+$_LANG['auto_affiliate'] = 'Auto Affiliate';
 
 $_LANG['separate_by'][0] = 'Recommend register is divided into';
 $_LANG['separate_by'][1] = 'Recommend orders into';

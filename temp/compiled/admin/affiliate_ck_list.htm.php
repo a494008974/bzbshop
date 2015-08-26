@@ -12,10 +12,17 @@
   <a href="affiliate_ck.php?act=list&status=1"><?php echo $this->_var['lang']['sch_stats']['1']; ?></a>
   <a href="affiliate_ck.php?act=list&status=2"><?php echo $this->_var['lang']['sch_stats']['2']; ?></a>
 <?php echo $this->_var['lang']['sch_order']; ?>
-
 <input type="hidden" name="act" value="list" />
 <input name="order_sn" type="text" id="order_sn" size="15"><input type="submit" value="<?php echo $this->_var['lang']['button_search']; ?>" class="button" />
 </form>
+<br>
+
+<form action="affiliate_ck.php" method="post">
+<input type="hidden" name="act" value="separate" />
+<input type="hidden" name="oid" value="all" />
+<input type="submit" value="<?php echo $this->_var['lang']['a_key_affiliate_separate']; ?>" class="button" />
+</form>
+
 <?php endif; ?>
 </div>
 <form method="post" action="" name="listForm">
@@ -74,7 +81,6 @@ listTable.filter.<?php echo $this->_var['key']; ?> = '<?php echo $this->_var['it
 <!--  -->
 onload = function()
 {
-  // 开始检查订单
   startCheckOrder();
 }
 <!--  -->

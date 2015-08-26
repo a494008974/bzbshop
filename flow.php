@@ -639,6 +639,7 @@ elseif ($_REQUEST['step'] == 'checkout')
      * 取得订单信息
      */
     $order = flow_order_info();
+    
     $smarty->assign('order', $order);
 
     /* 计算折扣 */
@@ -1754,6 +1755,16 @@ elseif ($_REQUEST['step'] == 'done')
     elseif(isset($affiliate['on']) && $affiliate['on'] == 1 && $affiliate['config']['separate_by'] == 0)
     {
         //推荐注册分成
+        
+//     	echo "推荐注册分成 ......................................................</br>";
+    	
+//     	if(isset($affiliate['config'])){
+//     		echo "******************************</br>";
+//     		var_dump($affiliate['config']);
+//     	}else{
+//     		echo "******************************".'</br>';
+//     		echo "NULL";
+//     	}
         $parent_id = 0;
     }
     else

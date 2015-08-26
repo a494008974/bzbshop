@@ -356,7 +356,7 @@
         
       
   <div class="heard_flow"> 
-   <div class="flowlogo"><a  href="index.php" name="top"><img src="themes/suning/images/logo.gif" /> </a></div>
+   <div class="flowlogo"><a  href="index.php" name="top"><img src="themes/suning/images/logo.png" /> </a></div>
   <div class="step_out"><span class="span2"><a title="我的购物车" href="flow.php">1.我的购物车</a></span></div>
   
   </div>
@@ -392,7 +392,7 @@
 
         <?php if ($this->_var['step'] == "checkout"): ?>
             <div class="heard_flow"> 
-   <div class="flowlogo"><a  href="index.php" name="top"><img src="themes/suning/images/logo.gif" /> </a></div>
+   <div class="flowlogo"><a  href="index.php" name="top"><img src="themes/suning/images/logo.png" /> </a></div>
   <div class="step_out"><span class="span2"><a title="我的购物车" href="flow.php">1.我的购物车</a></span></div>
   
   </div>
@@ -750,7 +750,7 @@
                
   
    <div class="heard_flow"> 
-   <div class="flowlogo"><a  href="index.php" name="top"><img src="themes/suning/images/logo.gif" /> </a></div>
+   <div class="flowlogo"><a  href="index.php" name="top"><img src="themes/suning/images/logo.png" /> </a></div>
   <div class="step_out"><span class="span3"></span></div>
   
   </div>
@@ -883,7 +883,7 @@
         
           
   <div class="heard_flow"> 
-   <div class="flowlogo"><a href="index.php" name="top"><img src="themes/suning/images/logo.gif"> </a></div>
+   <div class="flowlogo"><a href="index.php" name="top"><img src="themes/suning/images/logo.png"> </a></div>
   <div class="step_out"><span class="span2"><a title="我的购物车" href="flow.php">1.我的购物车</a></span></div>
   
   </div>

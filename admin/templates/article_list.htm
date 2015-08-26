@@ -33,7 +33,7 @@
   </tr>
   {foreach from=$article_list item=list}
   <tr>
-    <td><span><input name="checkboxes[]" type="checkbox" value="{$list.article_id}" {if $list.cat_id <= 0 }disabled="true"{/if}/>{$list.article_id}</span></td>
+    <td><span><input name="checkboxes[]" type="checkbox" value="{$list.article_id}" >{if $list.cat_id <= 0 }disabled="true"{/if}/>{$list.article_id}</span></td>
     <td class="first-cell">
     <span onclick="javascript:listTable.edit(this, 'edit_title', {$list.article_id})">{$list.title|escape:html}</span></td>
     <td align="left"><span><!-- {if $list.cat_id > 0} -->{$list.cat_name|escape:html}<!-- {else} -->{$lang.reserve}<!-- {/if} --></span></td>
@@ -87,11 +87,11 @@
 
   onload = function()
   {
-    // 开始检查订单
+    // 寮�妫�煡璁㈠崟
     startCheckOrder();
   }
 	/**
-   * @param: bool ext 其他条件：用于转移分类
+   * @param: bool ext 鍏朵粬鏉′欢锛氱敤浜庤浆绉诲垎绫�
    */
   function confirmSubmit(frm, ext)
   {
@@ -122,7 +122,7 @@
 		
       var frm = document.forms['listForm'];
 
-      // 切换分类列表的显示
+      // 鍒囨崲鍒嗙被鍒楄〃鐨勬樉绀�
       frm.elements['target_cat'].style.display = frm.elements['type'].value == 'move_to' ? '' : 'none';
 
       if (!document.getElementById('btnSubmit').disabled &&
@@ -132,7 +132,7 @@
       }
   }
 
- /* 搜索文章 */
+ /* 鎼滅储鏂囩珷 */
  function searchArticle()
  {
     listTable.filter.keyword = Utils.trim(document.forms['searchForm'].elements['keyword'].value);

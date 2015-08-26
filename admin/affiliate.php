@@ -7,6 +7,8 @@ require(dirname(__FILE__) . '/includes/init.php');
 admin_priv('affiliate');
 $config = get_affiliate();
 
+// var_dump($config);
+
 /*------------------------------------------------------ */
 //-- 分成管理页
 /*------------------------------------------------------ */
@@ -33,9 +35,9 @@ elseif ($_REQUEST['act'] == 'query')
 /*------------------------------------------------------ */
 elseif ($_REQUEST['act'] == 'add')
 {
-    if (count($config['item']) < 5)
+    if (count($config['item']) < 6)
     {
-        //下线不能超过5层
+        //下线不能超过6层
         $_POST['level_point'] = (float)$_POST['level_point'];
         $_POST['level_money'] = (float)$_POST['level_money'];
         $maxpoint = $maxmoney = 100;
@@ -101,7 +103,10 @@ elseif ($_REQUEST['act'] == 'updata')
                             'level_point_all'       =>$_POST['level_point_all'],    //积分分成比
                             'level_money_all'       =>$_POST['level_money_all'],    //金钱分成比
                             'level_register_all'    =>$_POST['level_register_all'], //推荐注册奖励积分
-                            'level_register_up'     =>$_POST['level_register_up']   //推荐注册奖励积分上限
+                            'level_register_up'     =>$_POST['level_register_up'],   //推荐注册奖励积分上限
+    						'on_auto'     			=>$_POST['on_auto'],   			//自动分成开关
+    						'auto_expire'           =>$_POST['auto_expire'],   //自动分成时间设置
+    						'auto_expire_unit'      => $_POST['auto_expire_unit']   //单位：小时、天、周
           );
     $temp['item'] = $config['item'];
     $temp['on'] = 1;

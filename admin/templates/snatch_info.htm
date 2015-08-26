@@ -21,7 +21,7 @@
         <select name="goods_id" onchange="javascript:change_good_products();">
         {$snatch.option}
         </select>
-        <select name="product_id" {if $snatch.product_id <= 0}style="display:none"{/if}>
+        <select name="product_id"> {if $snatch.product_id <= 0}style="display:none"{/if}>
         {html_options options=$good_products_select selected=$snatch.product_id}
         </select>
         {$lang.require_field}
@@ -82,12 +82,12 @@ var display_yes = (Browser.isIE) ? 'block' : 'table-row-group';
 document.forms['theForm'].elements['snatch_name'].focus();
 onload = function()
 {
-  // 开始检查订单
+  // 寮�妫�煡璁㈠崟
   startCheckOrder();
 }
 
 /**
- * 检查表单输入的数据
+ * 妫�煡琛ㄥ崟杈撳叆鐨勬暟鎹�
  */
 function validate()
 {
@@ -127,11 +127,11 @@ function searchGoodsResponse(result)
 
   if (result.error == 0)
   {
-    /* 清除 options */
+    /* 娓呴櫎 options */
     sel.length = 0;
     sp.length = 0;
 
-    /* 创建 options */
+    /* 鍒涘缓 options */
     var goods = result.content.goods;
     if (goods.length)
     {
@@ -151,7 +151,7 @@ function searchGoodsResponse(result)
       sel.options.add(opt);
     }
 
-    /* 创建 product options */
+    /* 鍒涘缓 product options */
     var products = result.content.products;
     if (products.length)
     {
@@ -197,10 +197,10 @@ function searchProductsResponse(result)
 
   if (result.error == 0)
   {
-    /* 清除 options */
+    /* 娓呴櫎 options */
     sp.length = 0;
 
-    /* 创建 product options */
+    /* 鍒涘缓 product options */
     var products = result.content.products;
     if (products.length)
     {

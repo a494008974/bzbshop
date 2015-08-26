@@ -188,12 +188,14 @@ var process_request = "{$lang.process_request}";
 </script>
 <div style="background:#dd301f;">
 <div class="block  topWrap">
+<!--
 <div class="w">
 <a href="#"><img  src="../images/ad_top.jpg" width="1200" height="40" /></a>
 </div>
 <div class="s">
 <a href="#"> <img  src="../images/ad_top_s.jpg" width="990" height="40" /></a>
 </div>
+-->
 </div>
 </div>
 <div class="topNav">

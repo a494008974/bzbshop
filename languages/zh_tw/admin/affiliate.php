@@ -15,6 +15,7 @@
 
 $_LANG['on'] = '開啟';
 $_LANG['off'] = '關閉';
+$_LANG['auto_affiliate'] = '自動分成';
 
 $_LANG['separate_by'][0] = '推薦註冊分成';
 $_LANG['separate_by'][1] = '推薦訂單分成';

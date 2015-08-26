@@ -11,6 +11,7 @@
 <input type="submit" value="<?php echo $this->_var['lang']['button_submit']; ?>" class="button" id="btnon"/>
 </form>
 </div>
+
 <div id="separate">
 <div class="form-div">
 <form method="post" action="affiliate.php">
@@ -53,10 +54,34 @@
                     <td><input type="text" name="level_register_up" maxlength="150" size="10" value="<?php echo $this->_var['config']['config']['level_register_up']; ?>" />
                     <br />
                     <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="notice5"><?php echo nl2br($this->_var['lang']['help_lru']); ?></span></td>
+                </tr>
+                
+                <tr>
+                    <td align="right" class="label"><a href="javascript:showNotice('notice6');" title="<?php echo $this->_var['lang']['auto_affiliate']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>" /></a><?php echo $this->_var['lang']['auto_affiliate']; ?></td>
+                    <td>
+                    <input type="radio" name="on_auto" value="on" <?php if ($this->_var['config']['config']['on_auto'] == "on"): ?> checked="true" <?php endif; ?>/><?php echo $this->_var['lang']['on']; ?>
+					<input type="radio" name="on_auto" value="off" <?php if ($this->_var['config']['config']['on_auto'] != "on"): ?> checked="true" <?php endif; ?> /><?php echo $this->_var['lang']['off']; ?>
+                     <br />
+                     <br />
+                    <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="notice6"><?php echo nl2br($this->_var['lang']['help_auto_affiliate']); ?></span></td>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td align="right" class="label"><a href="javascript:showNotice('notice7');" title="<?php echo $this->_var['lang']['auto_affiliate_expire']; ?>"><img src="images/notice.gif" width="16" height="16" border="0" alt="<?php echo $this->_var['lang']['form_notice']; ?>" /></a><?php echo $this->_var['lang']['auto_affiliate_expire']; ?></td>
+                    <td><input type="text" name="auto_expire" maxlength="150" size="10" value="<?php echo $this->_var['config']['config']['auto_expire']; ?>" />
+                        <select name="auto_expire_unit">
+                            <?php echo $this->html_options(array('options'=>$this->_var['lang']['unit'],'selected'=>$this->_var['config']['config']['auto_expire_unit'])); ?>
+                        </select>
+                        <br />
+                        <span class="notice-span" <?php if ($this->_var['help_open']): ?>style="display:block" <?php else: ?> style="display:none" <?php endif; ?> id="notice7"><?php echo nl2br($this->_var['lang']['help_auto_affiliate_expire']); ?></span>                        
+                    </td>
+                </tr>
+                	
                 <tr><td></td>
                     <td><input type="hidden" name="act" value="updata" /><input type="submit" value="<?php echo $this->_var['lang']['button_submit']; ?>" class="button" /></td>
                 </tr>
-                </tr>
+                
             </table>
     </form>
 </div>
@@ -100,10 +125,9 @@ var all_null = '<?php echo $this->_var['lang']['all_null']; ?>';
 
 onload = function()
 {
-  // 开始检查订单
   startCheckOrder();
   cleanWhitespace(document.getElementById("listDiv"));
-  if (document.getElementById("listDiv").childNodes[0].rows.length<6)
+  if (document.getElementById("listDiv").childNodes[0].rows.length<7)
   {
     listTable.addRow(check);
   }
